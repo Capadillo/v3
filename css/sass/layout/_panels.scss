@@ -1,6 +1,6 @@
 #panel__attributes {
     display: grid;
-    grid-gap: var(--padding, 1rem);
+    grid-gap: var(--gap, 1rem);
 
     @media (min-width: 512px) {
         grid-template-columns: 1fr 1fr;

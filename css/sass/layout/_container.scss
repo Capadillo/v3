@@ -1,9 +1,9 @@
 .container {
     display: grid;
-    grid-gap: var(--padding, 1rem);
+    grid-gap: var(--gap, 1rem);
     margin-inline: auto;
-    margin-block: var(--padding, 1rem);
-    max-width: min(100% - (var(--padding, 1rem) * 2), 915px);
+    margin-block: var(--gap, 1rem);
+    max-width: min(100% - (var(--gap, 1rem) * 2), 915px);
 
     @media (min-width: 512px) {
         grid-template-columns: 1fr 2fr;
@@ -17,5 +17,5 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: var(--padding, 1rem);
+    gap: var(--gap, 1rem);
 }

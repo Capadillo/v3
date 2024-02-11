@@ -16,7 +16,7 @@ ul {
 
         &.backdrop {
             & + .backdrop {
-                margin-top: var(--padding, 0.5rem);
+                margin-top: var(--gap, 0.5rem);
             }
 
             background: rgba(black, 0.5);
