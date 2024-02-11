@@ -1,0 +1,42 @@
+ul {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: white;
+    padding: var(--padding, 0.5rem);
+
+    li {
+        padding: var(--padding, 0.5rem);
+
+        &:not(.heading) {
+            font-size: 0.825rem;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        &.backdrop {
+            & + .backdrop {
+                margin-top: var(--padding, 0.5rem);
+            }
+
+            background: rgba(black, 0.5);
+            border-radius: 0.25rem;
+        }
+
+        &.space-between {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+[collapsable] {
+    .heading {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &.collapsed > :not(.heading) {
+        display: none;
+    }
+}

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Character Sheet</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+    <!--
+    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+    Character Editor
+    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+    The editor dialog exists for the player
+    to edit all of the character information
+    that would be displayed on the character
+    sheet with the exception of the character
+    health, spells and inventory.
+    -->
+
+        <dialog id="dialog__editor">
+            <ul>
+                <li class="heading">Details</li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Alignment</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Background</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Class</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Size</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Race</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="heading">Proficiencies</li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Armor</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Languages</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Weapons</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Tools</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="heading">Attributes</li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Strength</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Dexterity</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Constitution</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Intelligence</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Wisdom</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Charisma</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Saving Throws</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Skill</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="heading">Biography</li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Allies & Organisations</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Character Appearance</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Character Backstory</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li class="heading">Personality</li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Personality Traits</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Ideals</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Bonds</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Flaws</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li class="heading">Description</li>
+                
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Age</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Height</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Weight</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Eyes</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Skin</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="input-group">
+                        <label for="edit__">Hair</label>
+                        <input type="text" id="edit__">
+                    </div>
+                </li>
+            </ul>
+        </dialog>
+
+    <!--
+
+    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+    Character Sheet
+    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+    Display a user and mobile friendly character sheet
+    for my campaigns. Keep all of the usual stuff you
+    would otherwise write down onto a character sheet
+    but organise it in a way that makes it pleasant
+    and easy to refer to. Use the above dialog to edit
+    the non-combat information. Use a TBD dialog to
+    change health, hit dice, death saves and inventory.
+
+    -= Basic Details =-
+    Character Name
+    Class / Level
+    Background
+    Player Name
+    Race
+    Alignment
+    Experience Points
+
+    -= Attributes =-
+    Strength
+    Dexterity
+    Constitution
+    Intelligence
+    Wisdom
+    Charisma
+    Saving Throws
+    Skills
+
+    -= Combat =-
+    Armor Class
+    Speed
+    Hit Point Maximum
+    Current Hit Points
+    Temporary Hit Points
+    Hit Dice Total
+    Hit Dice
+    Death Saving Throw Success
+    Death Saving Throw Failure
+
+    -= Roleplay =- 
+    Age
+    Height
+    Weight
+    Eyes
+    Skin
+    Hair
+    Personality Traits
+    Ideals
+    Bonds
+    Flaws
+
+    -= Character Information =-
+    Allies & Organisations
+    Backstory
+    Proficiencies
+    Languages
+    Features & Traits
+    Equipment (Inventory)
+
+    -= Auto Calculated =-
+    Proficiency Bonus
+    Passive Wisdom
+    Initiative
+
+    -= Other =-
+    Inspiration
+
+    -->
+
+        <div class="container">
+            <header>
+                <nav>
+                    <ol id="nav__main">
+                        <li data-panel="attributes">Attributes</li>
+                        <li data-panel="features">Features</il>
+                        <li data-panel="combat">Combat</li>
+                        <li data-panel="spells">Spells</li>
+                        <li data-panel="biography">Biography</li>
+                        <li data-panel="inventory">Inventory</li>
+                    </ol>
+                </nav>
+            </header>
+
+            <aside class="sidebar">
+                <article id="panel__details">
+                    <ul collapsable>
+                        <li class="heading">Details</li>
+
+                        <li class="space-between">
+                            <strong>Alignment</strong>
+                            <ins id="character__alignment">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Background</strong>
+                            <ins id="character__background">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Character Name</strong>
+                            <ins id="character__name">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Class & Level</strong>
+                            <ins id="character__class">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Experience Points</strong>
+                            <ins id="character__experience">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Inspiration</strong>
+                            <ins id="character__inspiration">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Player Name</strong>
+                            <ins id="character__player">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Proficiency Bonus</strong>
+                            <ins id="character__proficiency_bonus">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Race</strong>
+                            <ins id="character__race">&empty;</ins>
+                        </li>
+                    </ul>
+                </article>
+
+                <article id="panel__proficiencies">
+                    <ul class="collapsed" collapsable>
+                        <li class="heading">Proficiencies</li>
+
+                        <li class="space-between">
+                            <strong>Armour</strong>
+                            <ins id="character__proficiencies_armor">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Languages</strong>
+                            <ins id="character__languages">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Weapons</strong>
+                            <ins id="character__proficiencies_weapons">&empty;</ins>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Tools</strong>
+                            <ins id="character__proficiencies_tools">&empty;</ins>
+                        </li>
+                    </ul>
+                </article>
+            </aside>
+
+            <main>
+
+<!--
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+ID Schema
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+Ability Score:      character__<ability_score>
+Ability Modifier:   modifier__<ability_score>
+Saving Throw:       save__<ability_score>
+Skill:              skill__<skill>
+-->
+
+                <article id="panel__attributes">
+                    <ul class="color__strength">
+                        <li class="space-between heading">
+                            <span>Strength</span>
+                            <span id="character__strength">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__strength">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__strength">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Athletics</span>
+                            <span id="skill__athletics">&empty;</span>
+                        </li>
+                    </ul>
+                    
+                    <ul class="color__constitution">
+                        <li class="space-between heading">
+                            <span>Constitution</span>
+                            <span id="character__constitution">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__constitution">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__constitution">&empty;</span>
+                        </li>
+                    </ul>
+                    
+                    <ul class="color__dexterity">
+                        <li class="space-between heading">
+                            <span>Dexterity</span>
+                            <span id="character__dexterity">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__dexterity">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__dexterity">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Acrobatics</span>
+                            <span id="skill__acrobatics">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Sleight of Hand</span>
+                            <span id="skill__sleight_of_hand">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Stealth</span>
+                            <span id="skill__stealth">&empty;</span>
+                        </li>
+                    </ul>
+
+                    <ul class="color__charisma">
+                        <li class="space-between heading">
+                            <span>Charisma</span>
+                            <span id="character__charisma">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__charisma">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__charisma">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Deception</span>
+                            <span id="skill__deception">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Intimidation</span>
+                            <span id="skill__intimidation">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Performance</span>
+                            <span id="skill__performance">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Persuasion</span>
+                            <span id="skill__persuasion">&empty;</span>
+                        </li>
+                    </ul>
+
+                    <ul class="color__intelligence">
+                        <li class="space-between heading">
+                            <span>Intelligence</span>
+                            <span id="character__intelligence">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__intelligence">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__intelligence">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Arcana</span>
+                            <span id="skill__arcana">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>History</span>
+                            <span id="skill__history">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Investigation</span>
+                            <span id="skill__investigation">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Nature</span>
+                            <span id="skill__nature">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Religion</span>
+                            <span id="skill__religion">&empty;</span>
+                        </li>
+                    </ul>
+                    
+                    <ul class="color__wisdom">
+                        <li class="space-between heading">
+                            <span>Wisdom</span>
+                            <span id="character__wisdom">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Modifier</span>
+                            <span id="modifier__wisdom">&empty;</span>
+                        </li>
+
+                        <li class="space-between backdrop">
+                            <span>Saving Throw</span>
+                            <span id="save__wisdom">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Animal Handling</span>
+                            <span id="skill__animal_handling">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Insight</span>
+                            <span id="skill__insight">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Medicine</span>
+                            <span id="skill__medicine">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Perception</span>
+                            <span id="skill__perception">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Perception <em>Passive</em></span>
+                            <span id="skill__perception_passive">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <span>Survival</span>
+                            <span id="skill__survival">&empty;</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <article id="panel__features">
+                    <ul>
+                        <li class="heading">Features & Traits</li>
+
+                        <li class="backdrop">Feature</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
+                        <li class="backdrop">Feature</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
+                        <li class="backdrop">Feature</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
+                        <li class="backdrop">Feature</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
+                    </ul>
+                </article>
+
+                <article id="panel__biography"></article>
+                <article id="panel__combat"></article>
+
+                
+                <article id="panel__inventory"></article>
+                <article id="panel__spells"></article>
+            </main>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script type="module" src="js/app.js"></script>
+    </body>
+</html>

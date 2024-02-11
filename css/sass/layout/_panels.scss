@@ -1,0 +1,100 @@
+#panel__attributes {
+    display: grid;
+    grid-gap: var(--padding, 1rem);
+
+    @media (min-width: 512px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .color__strength {
+        background-color: $color-str-300;
+        background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
+        .heading { color: $color-str-100; }
+    }
+
+    .color__dexterity {
+        background-color: $color-dex-300;
+        background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+        .heading { color: $color-dex-100; }
+    }
+
+    .color__constitution {
+        background-color: $color-con-300;
+        background: linear-gradient(45deg, $color-con-400 0%, $color-con-500 100%);
+        .heading { color: $color-con-100; }
+    }
+
+    .color__intelligence {
+        background-color: $color-int-300;
+        background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
+        .heading { color: $color-int-100; }
+    }
+
+    .color__wisdom {
+        background-color: $color-wis-300;
+        background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
+        .heading { color: $color-wis-100; }
+    }
+
+    .color__charisma {
+        background-color: $color-cha-300;
+        background: linear-gradient(45deg, $color-cha-400 0%, $color-cha-500 100%);
+        .heading { color: $color-cha-100; }
+    }
+}
+
+#panel__details {
+    ul {
+        background-color: $color-orange-300;
+        background: linear-gradient(45deg, $color-orange-300 0%, $color-orange-400 100%);
+        .heading { color: $color-orange-100; }
+    }
+}
+
+#panel__proficiencies {
+    ul {
+        background-color: $color-grey-300;
+        background: linear-gradient(45deg, $color-grey-300 0%, $color-grey-400 100%);
+        .heading { color: $color-grey-100; }
+    }
+}
+
+#panel__biography {
+    ul {
+        background-color: $color-con-300;
+        background: linear-gradient(45deg, $color-con-400 0%, $color-con-500 100%);
+        .heading { color: $color-con-100; }
+    }
+}
+
+#panel__features {
+    ul {
+        background-color: $color-wis-300;
+        background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
+        .heading { color: $color-wis-100; }
+    }
+}
+
+#panel__combat {
+    ul {
+        background-color: $color-str-300;
+        background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
+        .heading { color: $color-str-100; }
+    }
+}
+
+#panel__inventory {
+    ul {
+        background-color: $color-dex-300;
+        background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+        .heading { color: $color-dex-100; }
+    }
+}
+
+#panel__spells {
+    ul {
+        background-color: $color-int-300;
+        background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
+        .heading { color: $color-int-100; }
+    }
+}
