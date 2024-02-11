@@ -6,39 +6,49 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    ul {
+        border: 2px solid black;
+    }
+
     .color__strength {
         background-color: $color-str-300;
         background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
+        border-color: $color-str-400;
         .heading { color: $color-str-100; }
     }
 
     .color__dexterity {
         background-color: $color-dex-300;
         background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+        border-color: $color-dex-400;
         .heading { color: $color-dex-100; }
     }
 
     .color__constitution {
         background-color: $color-con-300;
         background: linear-gradient(45deg, $color-con-400 0%, $color-con-500 100%);
+        border-color: $color-con-400;
         .heading { color: $color-con-100; }
     }
 
     .color__intelligence {
         background-color: $color-int-300;
         background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
+        border-color: $color-int-400;
         .heading { color: $color-int-100; }
     }
 
     .color__wisdom {
         background-color: $color-wis-300;
         background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
+        border-color: $color-wis-400;
         .heading { color: $color-wis-100; }
     }
 
     .color__charisma {
         background-color: $color-cha-300;
         background: linear-gradient(45deg, $color-cha-400 0%, $color-cha-500 100%);
+        border-color: $color-cha-400;
         .heading { color: $color-cha-100; }
     }
 }
@@ -47,6 +57,7 @@
     ul {
         background-color: $color-orange-300;
         background: linear-gradient(45deg, $color-orange-300 0%, $color-orange-400 100%);
+        border: 2px solid $color-orange-300;
         .heading { color: $color-orange-100; }
     }
 }
@@ -55,6 +66,7 @@
     ul {
         background-color: $color-grey-300;
         background: linear-gradient(45deg, $color-grey-300 0%, $color-grey-400 100%);
+        border: 2px solid $color-grey-300;
         .heading { color: $color-grey-100; }
     }
 }
@@ -63,6 +75,7 @@
     ul {
         background-color: $color-con-300;
         background: linear-gradient(45deg, $color-con-400 0%, $color-con-500 100%);
+        border: 2px solid $color-con-400;
         .heading { color: $color-con-100; }
     }
 }
@@ -71,6 +84,7 @@
     ul {
         background-color: $color-wis-300;
         background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
+        border: 2px solid $color-wis-400;
         .heading { color: $color-wis-100; }
     }
 }
@@ -79,6 +93,7 @@
     ul {
         background-color: $color-str-300;
         background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
+        border: 2px solid $color-str-400;
         .heading { color: $color-str-100; }
     }
 }
@@ -87,6 +102,7 @@
     ul {
         background-color: $color-dex-300;
         background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+        border: 2px solid $color-dex-400;
         .heading { color: $color-dex-100; }
     }
 }
@@ -95,6 +111,7 @@
     ul {
         background-color: $color-int-300;
         background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
+        border: 2px solid $color-int-400;
         .heading { color: $color-int-100; }
     }
 }

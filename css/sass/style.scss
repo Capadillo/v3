@@ -115,7 +115,7 @@ $color-cha-500: color.scale($color-cha-100, $lightness: -80%);
 @import 'layout/panels';
 
 body {
-    background-color: #323c46;
+    background-color: hsl(210, 20%, 40%);
     min-height: calc(100vh - var(--padding));
 }
 
