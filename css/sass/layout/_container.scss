@@ -6,7 +6,7 @@
     max-width: min(100% - (var(--gap, 1rem) * 2), 915px);
 
     @media (min-width: 512px) {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 2fr 1fr;
 
         header {
             grid-column: 1 / -1;
