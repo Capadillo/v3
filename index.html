@@ -1,3 +1,38 @@
+<!--
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+ID Formats
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+Ability Score:      character__<ability_score>
+Ability Modifier:   modifier__<ability_score>
+Saving Throw:       save__<ability_score>
+Skill:              skill__<skill>
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+Special Data Attributes
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+-= Collapsable =-
+
+collapsable
+
+• Allow the user to collapse the list.
+
+-= Panel =-
+
+data-panel=<panel_id>
+
+• Hide all panels except the one the user clicked on.
+
+-= Accordian =-
+
+data-accordian=<accordian_group>
+
+• Hide all accordians from the same grouping.
+• Allow toggling of the opened accordian.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,322 +44,6 @@
     </head>
 
     <body>
-    <!--
-    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-    Character Editor
-    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-    The editor dialog exists for the player
-    to edit all of the character information
-    that would be displayed on the character
-    sheet with the exception of the character
-    health, spells and inventory.
-    -->
-
-        <dialog id="dialog__editor">
-            <ul>
-                <li class="heading">Details</li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Alignment</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Background</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Class</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Size</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Race</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-            </ul>
-
-            <ul>
-                <li class="heading">Proficiencies</li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Armor</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Languages</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Weapons</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Tools</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-            </ul>
-
-            <ul>
-                <li class="heading">Attributes</li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Strength</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Dexterity</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Constitution</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Intelligence</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Wisdom</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Charisma</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Saving Throws</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Skill</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-            </ul>
-
-            <ul>
-                <li class="heading">Biography</li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Allies & Organisations</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Character Appearance</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Character Backstory</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li class="heading">Personality</li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Personality Traits</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Ideals</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Bonds</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Flaws</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li class="heading">Description</li>
-                
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Age</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Height</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Weight</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Eyes</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Skin</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-
-                <li>
-                    <div class="input-group">
-                        <label for="edit__">Hair</label>
-                        <input type="text" id="edit__">
-                    </div>
-                </li>
-            </ul>
-        </dialog>
-
-    <!--
-
-    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-    Character Sheet
-    =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-    Display a user and mobile friendly character sheet
-    for my campaigns. Keep all of the usual stuff you
-    would otherwise write down onto a character sheet
-    but organise it in a way that makes it pleasant
-    and easy to refer to. Use the above dialog to edit
-    the non-combat information. Use a TBD dialog to
-    change health, hit dice, death saves and inventory.
-
-    -= Basic Details =-
-    Character Name
-    Class / Level
-    Background
-    Player Name
-    Race
-    Alignment
-    Experience Points
-
-    -= Attributes =-
-    Strength
-    Dexterity
-    Constitution
-    Intelligence
-    Wisdom
-    Charisma
-    Saving Throws
-    Skills
-
-    -= Combat =-
-    Armor Class
-    Speed
-    Hit Point Maximum
-    Current Hit Points
-    Temporary Hit Points
-    Hit Dice Total
-    Hit Dice
-    Death Saving Throw Success
-    Death Saving Throw Failure
-
-    -= Roleplay =- 
-    Age
-    Height
-    Weight
-    Eyes
-    Skin
-    Hair
-    Personality Traits
-    Ideals
-    Bonds
-    Flaws
-
-    -= Character Information =-
-    Allies & Organisations
-    Backstory
-    Proficiencies
-    Languages
-    Features & Traits
-    Equipment (Inventory)
-
-    -= Auto Calculated =-
-    Proficiency Bonus
-    Passive Wisdom
-    Initiative
-
-    -= Other =-
-    Inspiration
-
-    -->
-
         <div class="container">
             <header>
                 <nav>
@@ -340,17 +59,6 @@
             </header>
 
             <main>
-
-<!--
-=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-ID Schema
-=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-Ability Score:      character__<ability_score>
-Ability Modifier:   modifier__<ability_score>
-Saving Throw:       save__<ability_score>
-Skill:              skill__<skill>
--->
-
                 <article id="panel__attributes">
                     <ul class="color__strength">
                         <li class="space-between heading">
@@ -554,26 +262,46 @@ Skill:              skill__<skill>
                     <ul>
                         <li class="heading">Features & Traits</li>
 
-                        <li class="backdrop">Dwarven Toughness • BR 20</li>
+                        <li class="backdrop space-between" data-accordian="features">
+                            <strong>Dwarven Toughness</strong>
+                            <strong>BR 20</strong>
+                        </li>
                         <li>Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.</li>
-                        <li class="backdrop">Feature</li>
+
+                        <li class="backdrop space-between" data-accordian="features">
+                            <strong>Feature</strong>
+                        </li>
                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
-                        <li class="backdrop">Feature</li>
+
+                        <li class="backdrop" data-accordian="features">
+                            <strong>Feature</strong>
+                        </li>
                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
-                        <li class="backdrop">Feature</li>
+
+                        <li class="backdrop" data-accordian="features">
+                            <strong>Feature</strong>
+                        </li>
                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
                     </ul>
                 </article>
 
                 <article id="panel__biography">
                     <ul>
-                        <li class="heading">Allies & Organisations</li>
+                        <li class="heading">Biography</li>
+
+                        <li class="backdrop">
+                            <strong>Allies & Organisations</strong>
+                        </li>
                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</li>
                         
-                        <li class="heading">Backstory</li>
+                        <li class="backdrop">
+                            <strong>Backstory</strong>
+                        </li>
                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</li>
                         
-                        <li class="heading">Character Appearance</li>
+                        <li class="backdrop">
+                            <strong>Character Appearance</strong>
+                        </li>
 
                         <li class="space-between">
                             <strong>Age:</strong>
@@ -605,7 +333,9 @@ Skill:              skill__<skill>
                             <ins id="character__weight">&empty;</ins>
                         </li>
 
-                        <li class="heading">Character Personality</li>
+                        <li class="backdrop">
+                            <strong>Character Personality</strong>
+                        </li>
                         
                         <li class="rows">
                             <strong>Personality Traits</strong>
@@ -632,8 +362,7 @@ Skill:              skill__<skill>
                 <article id="panel__combat">
                 
                 </article>
-
-                
+               
                 <article id="panel__inventory">
                     <ul>
                         <li class="heading">Inventory</li>
@@ -717,7 +446,106 @@ Skill:              skill__<skill>
                         </li>
                     </ul>                
                 </article>
-                <article id="panel__spells"></article>
+                <article id="panel__spells">
+                    <ul>
+                        <li class="heading">Spells</li>
+
+                        <li class="backdrop space-between" data-accordian="spells">
+                            <strong>Acid Splash</strong>
+                        </li>
+                        <li>
+                            <div class="space-between">
+                                <strong>Casting Time</strong>
+                                <span>1 Action</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Range</strong>
+                                <span>60 Feet</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Components</strong>
+                                <span>V, S</span>
+                            </div>
+                            
+                            <div class="space-between">
+                                <strong>Duration</strong>
+                                <span>Instantaneous</span>
+                            </div>
+
+                            <div>
+                                You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.<br>
+                                <br>
+                                <strong>At Higher Levels.</strong> This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+                            </div>
+                        </li>
+                        
+                        <li class="backdrop space-between" data-accordian="spells">
+                            <strong>Acid Splash</strong>
+                        </li>
+
+                        <li>
+                            <div class="space-between">
+                                <strong>Casting Time</strong>
+                                <span>1 Action</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Range</strong>
+                                <span>60 Feet</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Components</strong>
+                                <span>V, S</span>
+                            </div>
+                            
+                            <div class="space-between">
+                                <strong>Duration</strong>
+                                <span>Instantaneous</span>
+                            </div>
+
+                            <div>
+                                You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.<br>
+                                <br>
+                                <strong>At Higher Levels.</strong> This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+                            </div>
+                        </li>
+
+                        <li class="backdrop space-between" data-accordian="spells">
+                            <strong>Acid Splash</strong>
+                        </li>
+
+                        <li>
+                            <div class="space-between">
+                                <strong>Casting Time</strong>
+                                <span>1 Action</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Range</strong>
+                                <span>60 Feet</span>
+                            </div>
+
+                            <div class="space-between">
+                                <strong>Components</strong>
+                                <span>V, S</span>
+                            </div>
+                            
+                            <div class="space-between">
+                                <strong>Duration</strong>
+                                <span>Instantaneous</span>
+                            </div>
+
+                            <div>
+                                You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.<br>
+                                <br>
+                                <strong>At Higher Levels.</strong> This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+                            </div>
+                        </li>
+                    </ul>
+                </article>
             </main>
 
             <aside class="sidebar">

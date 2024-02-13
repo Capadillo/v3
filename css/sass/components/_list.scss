@@ -22,15 +22,15 @@ ul {
             background: rgba(black, 0.5);
             border-radius: 0.25rem;
         }
+
+        div + div {
+            margin-top: calc(var(--padding) / 2);
+        }
     }
 
     .space-between {
         display: flex;
         justify-content: space-between;
-
-        & + .space-between {
-            margin-top: calc(var(--padding) / 2);
-        }
     }
 
     .rows {
