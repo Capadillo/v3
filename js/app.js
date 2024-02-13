@@ -66,6 +66,18 @@ class Cookie {
 let user_interacted = [];
 
 $(document).ready(function() {
+  $('[data-accordian] + li').addClass('hidden');
+  $('[data-accordian]').on('click', function() {
+    const group = $(this).data('accordian');
+    const parent = $(this);
+    $(`[data-accordian=${group}]`).each(function() {
+      if ($(this)[0] === parent[0] && $(this).next('li').is(':visible') == false) {
+        $(this).next('li').removeClass('hidden');
+      } else {
+        $(this).next('li').addClass('hidden');
+      }
+    });
+  });
     //$('#dialog__editor')[0].showModal();
     // hide all panels
     $(`main [id^="panel__"]`).hide();
