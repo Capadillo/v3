@@ -35,7 +35,7 @@ $(function() {
 
 let user_clicked = [];
 
-$('ul[collapsable]').on('click', function() {
+$('[collapsable]').on('click', function() {
     if (!user_clicked.includes(this)) {
         user_clicked.push(this);
     }
@@ -74,3 +74,28 @@ $(function() {
     $(`main [id*=panel__]`).not(`#panel__${panel}`).addClass('hidden');
     $(`#panel__${panel}`).removeClass('hidden');
 })
+
+let previous_width = 0;
+const breakpoint = 512;
+
+function toggle_collapsable() {
+    const width = window.innerWidth;
+
+    let action = "";
+
+    if (width < breakpoint && (width < previous_width || previous_width == 0)) {
+        action = "close";
+    }
+
+    $(`[collapsable]`).each((_, element) => {
+        if (user_clicked.includes(element)) return;
+        if (action == "close") {
+            $(element).addClass('collapsed');
+        } else {
+            $(element).removeClass('collapsed');
+        }
+    });
+}
+
+$(window).resize(toggle_collapsable);
+$(toggle_collapsable);

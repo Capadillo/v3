@@ -108,10 +108,10 @@
 }
 
 #panel__spells {
-    ul {
-        background-color: $color-int-300;
-        background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
-        border: var(--border) solid $color-int-400;
-        .heading { color: $color-int-100; }
-    }
+    background-color: $color-int-300;
+    background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
+    border: var(--border) solid $color-int-400;
+    padding: var(--padding, 0.5rem);
+    .heading { color: $color-int-100; }
+    > .heading { padding: var(--padding, 0.5rem); }
 }

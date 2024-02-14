@@ -25,6 +25,12 @@
     display: none !important;
 }
 
+.spell__card.collapsed {
+    > *:not(header) {
+        display: none !important;
+    }
+}
+
 .hidden + [data-accordian] {
     margin-top: calc(var(--padding, 1rem) / 2);
 }

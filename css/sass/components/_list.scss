@@ -41,12 +41,12 @@ ul {
 }
 
 [collapsable] {
-    .heading {
+    .heading, header {
         cursor: pointer;
         user-select: none;
     }
 
-    &.collapsed > :not(.heading) {
+    &.collapsed > :not(.heading):not(header) {
         display: none;
     }
 }
