@@ -1,13 +1,23 @@
+[id*=panel__] {
+    > .heading { padding: var(--padding, 0.5rem); }
+
+    &:not(:has(> ul)) {
+        border: var(--border) solid black;
+        padding: var(--padding, 0.5rem);
+    }
+
+    &:has(> ul) > ul {
+        border: var(--border) solid black;
+        padding: var(--padding, 0.5rem);
+    }
+}
+
 #panel__attributes {
     display: grid;
     grid-gap: var(--gap, 1rem);
 
     @media (min-width: 512px) {
         grid-template-columns: 1fr 1fr;
-    }
-
-    ul {
-        border: var(--border) solid black;
     }
 
     .color__strength {
@@ -54,64 +64,50 @@
 }
 
 #panel__details {
-    ul {
-        background-color: $color-orange-300;
-        background: linear-gradient(45deg, $color-orange-300 0%, $color-orange-400 100%);
-        border: var(--border) solid $color-orange-300;
-        .heading { color: $color-orange-100; }
-    }
+    background-color: $color-orange-300;
+    background: linear-gradient(45deg, $color-orange-300 0%, $color-orange-400 100%);
+    &, ul { border-color: $color-orange-300; }
+    .heading { color: $color-orange-100; }
 }
 
 #panel__proficiencies {
-    ul {
-        background-color: $color-grey-300;
-        background: linear-gradient(45deg, $color-grey-300 0%, $color-grey-400 100%);
-        border: var(--border) solid $color-grey-300;
-        .heading { color: $color-grey-100; }
-    }
+    background-color: $color-grey-300;
+    background: linear-gradient(45deg, $color-grey-300 0%, $color-grey-400 100%);
+    &, ul { border-color: $color-grey-300; }
+    .heading { color: $color-grey-100; }
 }
 
 #panel__biography {
     background-color: $color-con-300;
     background: linear-gradient(45deg, $color-con-400 0%, $color-con-500 100%);
-    border: var(--border) solid $color-con-400;
-    padding: var(--padding, 0.5rem);
-    > .heading { padding: var(--padding, 0.5rem); }
+    &, ul { border-color: $color-con-400; }
     .heading { color: $color-con-100; }
 }
 
 #panel__features {
-    ul {
-        background-color: $color-wis-300;
-        background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
-        border: var(--border) solid $color-wis-400;
-        .heading { color: $color-wis-100; }
-    }
+    background-color: $color-wis-300;
+    background: linear-gradient(45deg, $color-wis-400 0%, $color-wis-500 100%);
+    &, ul { border-color: $color-wis-400; }
+    .heading { color: $color-wis-100; }
 }
 
 #panel__combat {
-    ul {
-        background-color: $color-str-300;
-        background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
-        border: var(--border) solid $color-str-400;
-        .heading { color: $color-str-100; }
-    }
+    background-color: $color-str-300;
+    background: linear-gradient(45deg, $color-str-400 0%, $color-str-500 100%);
+    &, ul { border-color: $color-str-400; }
+    .heading { color: $color-str-100; }
 }
 
 #panel__inventory {
-    ul {
-        background-color: $color-dex-300;
-        background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
-        border: var(--border) solid $color-dex-400;
-        .heading { color: $color-dex-100; }
-    }
+    background-color: $color-dex-300;
+    background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+    &, ul { border-color: $color-dex-400; }
+    .heading { color: $color-dex-100; }
 }
 
 #panel__spells {
     background-color: $color-int-300;
     background: linear-gradient(45deg, $color-int-400 0%, $color-int-500 100%);
-    border: var(--border) solid $color-int-400;
-    padding: var(--padding, 0.5rem);
+    &, ul { border-color: $color-int-400; }
     .heading { color: $color-int-100; }
-    > .heading { padding: var(--padding, 0.5rem); }
 }

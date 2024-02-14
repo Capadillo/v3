@@ -1,7 +1,6 @@
 ul {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     color: white;
-    padding: var(--padding, 0.5rem);
 
     li {
         padding: var(--padding, 0.5rem);
@@ -26,11 +25,6 @@ ul {
         div + div {
             margin-top: calc(var(--padding) / 2);
         }
-    }
-
-    .space-between {
-        display: flex;
-        justify-content: space-between;
     }
 
     .rows {
