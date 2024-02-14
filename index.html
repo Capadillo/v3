@@ -286,77 +286,85 @@ data-accordian=<accordian_group>
                 </article>
 
                 <article id="panel__biography">
-                    <ul>
-                        <li class="heading">Biography</li>
+                    <div class="heading">Biography</div>
 
-                        <li class="backdrop">
-                            <strong>Allies & Organisations</strong>
-                        </li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</li>
+                    <article class="card" collapsable>
+                        <header>Allies & Organisations</header>
+                
+                        <div class="card__description">
+                            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</div>
+                        </div>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <header>Backstory</header>
+                
+                        <div class="card__description">
+                            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</div>
+                        </div>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <header>Character Personality</header>
+                    
+                        <div class="card__details">
+                            <div>
+                                <strong>Personality Traits</strong>
+                                <ins id="character__personality_traits">&empty;</ins>
+                            </div>
+
+                            <div>
+                                <strong>Ideals</strong>
+                                <ins id="character__ideals">&empty;</ins>
+                            </div>
+
+                            <div>
+                                <strong>Bonds</strong>
+                                <ins id="character__bonds">&empty;</ins>
+                            </div>
+
+                            <div>
+                                <strong>Flaws</strong>
+                                <ins id="character__flaws">&empty;</ins>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <header>Character Appearance</header>
                         
-                        <li class="backdrop">
-                            <strong>Backstory</strong>
-                        </li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</li>
-                        
-                        <li class="backdrop">
-                            <strong>Character Appearance</strong>
-                        </li>
+                        <div class="card__details">
+                            <div>
+                                <strong>Age</strong>
+                                <ins id="character__age">&empty;</ins>
+                            </div>
 
-                        <li class="space-between">
-                            <strong>Age:</strong>
-                            <ins id="character__age">&empty;</ins>
-                        </li>
+                            <div>
+                                <strong>Eyes</strong>
+                                <ins id="character__Eyes">&empty;</ins>
+                            </div>
 
-                        <li class="space-between">
-                            <strong>Eyes:</strong>
-                            <ins id="character__Eyes">&empty;</ins>
-                        </li>
+                            <div>
+                                <strong>Hair</strong>
+                                <ins id="character__hair">&empty;</ins>
+                            </div>
 
-                        <li class="space-between">
-                            <strong>Hair:</strong>
-                            <ins id="character__hair">&empty;</ins>
-                        </li>
+                            <div>
+                                <strong>Height</strong>
+                                <ins id="character__height">&empty;</ins>
+                            </div>
 
-                        <li class="space-between">
-                            <strong>Height:</strong>
-                            <ins id="character__height">&empty;</ins>
-                        </li>
+                            <div>
+                                <strong>Skin</strong>
+                                <ins id="character__skin">&empty;</ins>
+                            </div>
 
-                        <li class="space-between">
-                            <strong>Skin:</strong>
-                            <ins id="character__skin">&empty;</ins>
-                        </li>
-
-                        <li class="space-between">
-                            <strong>Weight:</strong>
-                            <ins id="character__weight">&empty;</ins>
-                        </li>
-
-                        <li class="backdrop">
-                            <strong>Character Personality</strong>
-                        </li>
-                        
-                        <li class="rows">
-                            <strong>Personality Traits</strong>
-                            <ins id="character__personality_traits">&empty;</ins>
-                        </li>
-                        
-                        <li class="rows">
-                            <strong>Ideals</strong>
-                            <ins id="character__ideals">&empty;</ins>
-                        </li>
-                        
-                        <li class="rows">
-                            <strong>Bonds</strong>
-                            <ins id="character__bonds">&empty;</ins>
-                        </li>
-                        
-                        <li class="rows">
-                            <strong>Flaws</strong>
-                            <ins id="character__flaws">&empty;</ins>
-                        </li>
-                    </ul>
+                            <div>
+                                <strong>Weight</strong>
+                                <ins id="character__weight">&empty;</ins>
+                            </div>
+                        </div>
+                    </article>
                 </article>
                 
                 <article id="panel__combat">
@@ -451,7 +459,7 @@ data-accordian=<accordian_group>
                         Spells
                     </div>
 
-                    <article class="spell__card collapsed" collapsable>
+                    <article class="card collapsed" collapsable>
                         <header>
                             <ins data-value="spell-name">Acid Splash</ins>
 
@@ -460,7 +468,7 @@ data-accordian=<accordian_group>
                             </small>    
                         </header>
                         
-                        <div class="spell__card__details">
+                        <div class="card__details">
                             <div>
                                 <strong>Casting Time</strong>
                                 <ins data-value="casting-time">1 action</ins>
@@ -482,12 +490,12 @@ data-accordian=<accordian_group>
                             </div>
                         </div>
 
-                        <p class="spell__card__description">
+                        <p class="card__description">
                             <ins data-value="description">You hurl a bubble of action. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must ducceed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</ins>
                         </p>
                     </article>
 
-                    <article class="spell__card collapsed" collapsable>
+                    <article class="card collapsed" collapsable>
                         <header>
                             <ins data-value="spell-name">Aid</ins>
 
@@ -496,7 +504,7 @@ data-accordian=<accordian_group>
                             </small>    
                         </header>
                         
-                        <div class="spell__card__details">
+                        <div class="card__details">
                             <div>
                                 <strong>Casting Time</strong>
                                 <ins data-value="casting-time">1 action</ins>
@@ -518,12 +526,12 @@ data-accordian=<accordian_group>
                             </div>
                         </div>
 
-                        <p class="spell__card__description">
+                        <p class="card__description">
                             <ins data-value="description">Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.<br><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.</ins>
                         </p>
                     </article>
                     
-                    <article class="spell__card collapsed" collapsable>
+                    <article class="card collapsed" collapsable>
                         <header>
                             <ins data-value="spell-name">Alarm</ins>
 
@@ -532,7 +540,7 @@ data-accordian=<accordian_group>
                             </small>    
                         </header>
                         
-                        <div class="spell__card__details">
+                        <div class="card__details">
                             <div>
                                 <strong>Casting Time</strong>
                                 <ins data-value="casting-time">1 minute</ins>
@@ -554,7 +562,7 @@ data-accordian=<accordian_group>
                             </div>
                         </div>
 
-                        <p class="spell__card__description">
+                        <p class="card__description">
                             <ins data-value="description">You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You can also choose whether the alarm is mental or audible.<br>A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakenss you if you are sleeping.<br>An audiblee alarm produces the sound of a hand bell for 10 seconds within 60 feet.</ins>
                         </p>
                     </article>
