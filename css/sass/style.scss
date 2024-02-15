@@ -121,12 +121,6 @@ body {
     min-height: calc(100vh - var(--padding));
 }
 
-header.inline {
-    display: grid;
-    grid-template-columns: max-content auto;
-    grid-gap: var(--gap, 0.5rem);
-}
-
 .input-group {
     background-color: white;
     display: grid;
@@ -219,81 +213,44 @@ header.inline {
     }
 }
 
-.profile {
-    display: grid;
-    &.image-only {
-        div > :not(img) {
-            display: none;
-        }
+header {
+    &.inline {
+        display: grid;
+        grid-gap: var(--gap, 0.5rem);
+        grid-template-columns: auto;
 
-        img {
-            max-height: 4.5625rem;
-        }
-    }
-
-    &:not(.image-only) {
-        margin-bottom: var(--gap, 0.5);
-
-        > :first-child {
+        > .profile {
+            align-items: center;
+            display: grid;
             grid-gap: var(--gap, 0.5rem);
             grid-template-columns: max-content auto;
+            text-align: center;
+
+            img {
+                height: 73px;
+            }
+            
+            > :not(img):not(h1), h1 > small {
+                display: none;
+            }
         }
 
-        @media (min-width:512px) {
-            grid-template-columns: 1fr 1fr;
-        }
+        @media (min-width: 720px) {
+            grid-template-columns: max-content auto;
 
-        img {
-            aspect-ratio: 1;
-            max-height: 9.8875rem;
-            height: 100%;
-        }
-
-        > :first-child {
-            display: grid;
-
-            > :last-child {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                > h1 {
-                    @extend .heading;
-                    color: $color-dex-400;
-                    font-size: 1.5rem;
-
-                    small {
-                        display: block;
-                        font-size: 0.825rem;
-                        font-family: 'Rubik', sans-serif;
-                        font-weight: 600;
-                    }
-                }
-
-                > :nth-child(n+2) {
-                    background-color: rgba(black, 0.75);
-                    margin-top: var(--gap, 0.5rem);
-                    padding: 3px;
-                    overflow: hidden;
-                    width: 100%;
-
-                    > * {
-                        background-color: green;
-                        font-size: 0.75rem;
-                        padding: 0.25rem;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        width: 34%;
-                    }
+            .profile {
+                grid-gap: unset;
+                h1 {
+                    display: none;
                 }
             }
         }
     }
+}
 
-    img {
-        background-color: $color-dex-300;
-        background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
-        border: var(--border) solid $color-dex-400;
-        display: block;
-    }
+img {
+    background-color: $color-dex-300;
+    background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
+    border: var(--border) solid $color-dex-400;
+    display: block;
 }
