@@ -15,6 +15,7 @@
     }
     
     li {
+        border: var(--border) solid transparent;
         color: white;
         padding: calc(var(--padding, 1rem) * 1.5) var(--padding, 1rem);
         text-align: center;
@@ -26,7 +27,7 @@
                 45deg,
                 $color-blue-300 0%,
                 $color-blue-400 100%);
-            border: var(--border) solid $color-blue-300;
+            border-color: $color-blue-300;
         }
     }
 }

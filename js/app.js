@@ -46,6 +46,10 @@ function collapsable_on_click() {
 $('[collapsable] > header').on('click', collapsable_on_click);
 $('[collapsable] > .heading').on('click', collapsable_on_click);
 
+$(`header img`).click(function() {
+    $(this).closest('header').toggleClass('inline');
+});
+
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 // Panel
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
