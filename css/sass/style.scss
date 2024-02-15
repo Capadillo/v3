@@ -214,6 +214,8 @@ body {
 }
 
 header {
+    color: white;
+    
     &.inline {
         display: grid;
         grid-gap: var(--gap, 0.5rem);
@@ -226,11 +228,19 @@ header {
             grid-template-columns: max-content auto;
             text-align: center;
 
+            h1 > small {
+                display: block;
+                font-family: 'Rubik', sans-serif;
+                font-size: 0.6em;
+                font-weight: 500;
+                margin-top: -0.25rem;
+            }
+
             img {
                 height: 73px;
             }
             
-            > :not(img):not(h1), h1 > small {
+            > :not(img):not(h1) {
                 display: none;
             }
         }
