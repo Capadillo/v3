@@ -32,6 +32,19 @@ data-accordian=<accordian_group>
 • Hide all accordians from the same grouping.
 • Allow toggling of the opened accordian.
 
+
+
+
+
+
+header has
+photo or placeholder
+name
+classes
+experience
+
+
+
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +59,27 @@ data-accordian=<accordian_group>
     <body>
         <div class="container">
             <header>
+                <div class="profile">
+                    <div>
+                        <img src="img/placeholder.png" alt="">
+                        <div>
+                            <h1>
+                                Character Name
+                                <small>Player Name</small>
+                            </h1>
+                            <div>
+                                <div>Experience Bar</div>
+                            </div>
+                            <div>
+                                <div>Fighter</div>
+                            </div>
+                            <div>
+                                <div>Monk</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <nav>
                     <ol id="nav__main">
                         <li data-panel="attributes">Attributes</li>
@@ -366,6 +400,78 @@ I.E. Equipped weapons & actions.
                 
 <article id="panel__combat">
     <div class="heading">Combat</div>
+
+    <div class="node">
+        <span>+10</span>
+        <span>Armor Class</span>
+    </div>
+
+    <div class="node">
+        <span>+10</span>
+        <span>Initiative</span>
+    </div>
+
+    <div class="node">
+        <span>+10</span>
+        <span>Speed</span>
+    </div>
+
+    <div class="table__weapons">
+        <header>
+            <span>
+                Name
+            </span>
+
+            <span>
+                Hit
+            </span>
+
+            <span>
+                Damage/Type
+            </span>
+
+            <span>
+                Notes
+            </span>
+        </header>
+        
+        <div>
+            <span>
+                Warhammer
+            </span>
+
+            <span>
+                +2
+            </span>
+
+            <span>
+                1d6+7 bludgeoning
+            </span>
+
+            <span>
+                Matial, Versatile
+            </span>
+        </div>
+        
+        <div>
+            <span>
+                Warhammer
+            </span>
+
+            <span>
+                +2
+            </span>
+
+            <span>
+                1d6+7 bludgeoning
+            </span>
+
+            <span>
+                Matial, Versatile
+            </span>
+        </div>
+    </div>
+
 </article>
 
 <!--
