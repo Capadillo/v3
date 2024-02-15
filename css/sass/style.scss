@@ -223,7 +223,7 @@ body {
 
     > :first-child {
         display: grid;
-        grid-gap: 0.25rem;
+        grid-gap: var(--gap, 0.5rem);
         grid-template-columns: max-content auto;
 
         img {
@@ -231,7 +231,7 @@ body {
             background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
             border: var(--border) solid $color-dex-400;
             aspect-ratio: 1;
-            max-height: 9.1375rem;
+            max-height: 9.8875rem;
             height: 100%;
         }
 
@@ -255,7 +255,7 @@ body {
 
             > :nth-child(n+2) {
                 background-color: rgba(black, 0.75);
-                margin-top: 0.25rem;
+                margin-top: var(--gap, 0.5rem);
                 padding: 3px;
                 overflow: hidden;
                 width: 100%;
