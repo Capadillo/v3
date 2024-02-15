@@ -111,6 +111,7 @@ $color-cha-500: color.scale($color-cha-100, $lightness: -80%);
 @import 'components/button';
 @import 'components/card';
 @import 'components/list';
+@import 'components/progress';
 
 @import 'layout/container';
 @import 'layout/navigation';
@@ -215,36 +216,52 @@ body {
 
 header {
     color: white;
+    display: grid;
+    grid-gap: var(--gap, 0.5rem);
 
-    &.inline {
+    h1 > small {
+        display: block;
+        font-family: 'Rubik', sans-serif;
+        font-size: 0.6em;
+        font-weight: 500;
+        margin-top: -0.25rem;
+    }
+
+    .profile {
+        align-items: center;
         display: grid;
         grid-gap: var(--gap, 0.5rem);
+        grid-template-columns: max-content auto;
+
+        img {
+            aspect-ratio: 1;
+            max-width: 4rem;
+        }
+
+        .progress-group {
+            grid-column: span 2;
+        }
+    }
+
+    &.inline {
         grid-template-columns: auto;
 
         > .profile {
-            align-items: center;
-            display: grid;
-            grid-gap: var(--gap, 0.5rem);
-            grid-template-columns: max-content auto;
-
-            h1 > small {
-                display: block;
-                font-family: 'Rubik', sans-serif;
-                font-size: 0.6em;
-                font-weight: 500;
-                margin-top: -0.25rem;
-            }
-
             img {
-                height: 73px;
+                min-width: unset;
+                max-height: 4rem;
             }
             
             > :not(img):not(h1) {
                 display: none;
             }
         }
+    }
 
-        @media (min-width: 720px) {
+    @media (min-width: 720px) {
+        
+
+        &.inline {
             grid-template-columns: max-content auto;
 
             .profile {
