@@ -35,13 +35,16 @@ $(function() {
 
 let user_clicked = [];
 
-$('[collapsable] > header').on('click', function() {
+function collapsable_on_click() {
     if (!user_clicked.includes(this)) {
         user_clicked.push(this);
     }
 
     $(this).parent('[collapsable]').toggleClass('collapsed');
-});
+}
+
+$('[collapsable] > header').on('click', collapsable_on_click);
+$('[collapsable] > .heading').on('click', collapsable_on_click);
 
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 // Panel
