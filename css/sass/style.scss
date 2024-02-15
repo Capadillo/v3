@@ -215,7 +215,7 @@ body {
 
 header {
     color: white;
-    
+
     &.inline {
         display: grid;
         grid-gap: var(--gap, 0.5rem);
@@ -226,7 +226,6 @@ header {
             display: grid;
             grid-gap: var(--gap, 0.5rem);
             grid-template-columns: max-content auto;
-            text-align: center;
 
             h1 > small {
                 display: block;
