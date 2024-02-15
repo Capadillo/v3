@@ -122,6 +122,10 @@ body {
     min-height: calc(100vh - var(--padding));
 }
 
+ins {
+    text-decoration: unset;
+}
+
 .input-group {
     background-color: white;
     display: grid;
