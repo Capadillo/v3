@@ -3,10 +3,10 @@
     border-radius: 0.25rem;
     color: white;
     font-weight: 300;
-    padding: 1rem;
+    padding: var(--padding, 0.5rem);
 
     & + & {
-        margin-top: calc(var(--padding, 1rem)/2);
+        margin-top: var(--spacing, 1rem);
     }
 
     header {

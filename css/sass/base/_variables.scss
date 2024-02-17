@@ -1,0 +1,44 @@
+@use 'sass:color';
+
+$colors: (
+    'gold': hsl(50, 80%, 60%),
+    'orange': hsl(34, 80%, 60%),
+    'blue': hsl(220, 80%, 60%),
+    'grey': hsl(0, 0%, 40%),
+    'light-grey': hsl(0, 0%, 60%),
+    'green': hsl(140, 75%, 50%),
+    // attributes
+    'strength': hsl(7, 80%, 60%),
+    'constitution': hsl(145, 80%, 60%),
+    'dexterity': hsl(202, 80%, 60%),
+    'intelligence': hsl(281, 80%, 60%),
+    'wisdom': hsl(320, 80%, 60%),
+    'charisma': hsl(46, 80%, 60%),
+    // classes
+    "barbarian":  hsl(13,  78%, 57%),
+    "bard":       hsl(299, 28%, 55%),
+    "cleric":     hsl(211, 18%, 63%),
+    "druid":      hsl(69,  39%, 38%),
+    "fighter":    hsl(18,  34%, 37%),
+    "monk":       hsl(197, 50%, 55%),
+    "paladin":    hsl(46,  40%, 52%),
+    "ranger":     hsl(143, 23%, 41%),
+    "rogue":      hsl(84,   3%, 33%),
+    "sorcerer":   hsl(0,   54%, 39%),
+    "warlock":    hsl(277, 38%, 44%),
+    "wizard":     hsl(221, 59%, 40%)
+);
+
+:root {
+    --border:  0.1875rem;
+    --spacing: 0.5000rem;
+    --padding: 1.0000rem;
+
+    @each $key, $value in $colors {
+        --clr-#{$key}-100: #{$value};
+        --clr-#{$key}-200: #{color.scale($value, $lightness: -20%)};
+        --clr-#{$key}-300: #{color.scale($value, $lightness: -40%)};
+        --clr-#{$key}-400: #{color.scale($value, $lightness: -60%)};
+        --clr-#{$key}-500: #{color.scale($value, $lightness: -80%)};
+    }
+}

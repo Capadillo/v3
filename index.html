@@ -58,31 +58,43 @@ experience
 
     <body>
         <div class="container">
-            <header class="inline">
-                <div class="profile">
-                    <img src="img/placeholder.png" alt="">
+            <header class="condensed">
+                <div id="header__character">
+                    <div class="portrait">
+                        <img src="img/placeholder.png" alt="">
+                    </div>
+
                     <h1>
                         Character Name
                         <small>Player Name</small>
                     </h1>
-                    <div class="progress-group">
-                        <div class="progress">
-                            <div class="texture" style="width:43%"></div>
-                        </div>
-                        <div class="progress">
-                            <div class="texture" style="width:43%"></div>
-                        </div>
+                </div>
+
+                <div id="header__experience">
+                    <div class="progress">
+                        <div class="texture" style="width:43%"></div>
+                    </div>
+                    <div class="progress">
+                        <div class="texture" style="width:43%"></div>
                     </div>
                 </div>
 
-                <nav>
+                <div id="header__combat">
+                    <div class="health">
+                        <div class="health__current">10</div>
+                        <div class="health__temporary">0</div>
+                        <div class="health__maximum">10</div>
+                    </div>
+                </div>
+
+                <nav id="header__navigation" class="navbar">
                     <ol id="nav__main">
-                        <li data-panel="attributes">Attributes</li>
-                        <li data-panel="features">Features</il>
-                        <li data-panel="combat">Combat</li>
-                        <li data-panel="spells">Spells</li>
-                        <li data-panel="biography">Biography</li>
-                        <li data-panel="inventory">Inventory</li>
+                        <li data-section="attributes">Attributes</li>
+                        <li data-section="features">Features</il>
+                        <li data-section="combat">Combat</li>
+                        <li data-section="spells">Spells</li>
+                        <li data-section="biography">Biography</li>
+                        <li data-section="inventory">Inventory</li>
                     </ol>
                 </nav>
             </header>
@@ -96,8 +108,8 @@ The attributes panel contains the ability scores,
 modifiers, saving throws and skills.
 --->
 
-<article id="panel__attributes">
-    <ul class="color__strength">
+<section id="section__attributes">
+    <ul class="panel__strength">
         <li class="space-between heading">
             <span>Strength</span>
             <span id="character__strength">&empty;</span>
@@ -119,7 +131,7 @@ modifiers, saving throws and skills.
         </li>
     </ul>
     
-    <ul class="color__constitution">
+    <ul class="panel__constitution">
         <li class="space-between heading">
             <span>Constitution</span>
             <span id="character__constitution">&empty;</span>
@@ -136,7 +148,7 @@ modifiers, saving throws and skills.
         </li>
     </ul>
     
-    <ul class="color__dexterity">
+    <ul class="panel__dexterity">
         <li class="space-between heading">
             <span>Dexterity</span>
             <span id="character__dexterity">&empty;</span>
@@ -168,7 +180,7 @@ modifiers, saving throws and skills.
         </li>
     </ul>
 
-    <ul class="color__charisma">
+    <ul class="panel__charisma">
         <li class="space-between heading">
             <span>Charisma</span>
             <span id="character__charisma">&empty;</span>
@@ -205,7 +217,7 @@ modifiers, saving throws and skills.
         </li>
     </ul>
 
-    <ul class="color__intelligence">
+    <ul class="panel__intelligence">
         <li class="space-between heading">
             <span>Intelligence</span>
             <span id="character__intelligence">&empty;</span>
@@ -247,7 +259,7 @@ modifiers, saving throws and skills.
         </li>
     </ul>
     
-    <ul class="color__wisdom">
+    <ul class="panel__wisdom">
         <li class="space-between heading">
             <span>Wisdom</span>
             <span id="character__wisdom">&empty;</span>
@@ -293,7 +305,7 @@ modifiers, saving throws and skills.
             <ins id="skill__survival">&empty;</ins>
         </li>
     </ul>
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -303,7 +315,7 @@ Any information about the character that doesn't
 fit into the other panels goes here.
 --->
 
-<article id="panel__biography">
+<section id="section__biography" class="panel__constitution">
     <div class="heading">Biography</div>
 
     <article class="card" collapsable>
@@ -383,7 +395,7 @@ fit into the other panels goes here.
             </div>
         </div>
     </article>
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -393,7 +405,7 @@ Display any combat information here.
 I.E. Equipped weapons & actions.
 --->
                 
-<article id="panel__combat">
+<section id="section__combat" class="panel__strength">
     <div class="heading">Combat</div>
 
     <div class="node">
@@ -467,7 +479,7 @@ I.E. Equipped weapons & actions.
         </div>
     </div>
 
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -477,7 +489,7 @@ All racial, class and background features and/or
 traits.
 --->
 
-<article id="panel__features">
+<section id="section__features" class="panel__warlock">
     <div class="heading">Features & Traits</div>
 
     <article class="card" collapsable>
@@ -490,7 +502,7 @@ traits.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
         </div>
     </article>
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -500,7 +512,7 @@ Display all items in the inventory with a quick
 button to equip or unequip equipable items.
 --->
                
-<article id="panel__inventory">
+<section id="section__inventory" class="panel__dexterity">
     <div class="heading">Inventory</div>
 
     <article class="card" collapsable>
@@ -592,7 +604,7 @@ button to equip or unequip equipable items.
             </div>
         </div>
     </article>
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -602,7 +614,7 @@ Display a list of all available spells to your
 race/class combo.
 --->
 
-<article id="panel__spells">
+<section id="section__spells" class="panel__intelligence">
     <div class="heading">
         Spells
     </div>
@@ -714,7 +726,7 @@ race/class combo.
             <ins data-value="description">You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You can also choose whether the alarm is mental or audible.<br>A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakenss you if you are sleeping.<br>An audiblee alarm produces the sound of a hand bell for 10 seconds within 60 feet.</ins>
         </p>
     </article>
-</article>
+</section>
 
 <!--
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -723,9 +735,9 @@ Side Bar
 --->
             </main>
 
-            <aside class="sidebar">
-                <article id="panel__details">
-                    <ul collapsable>
+            <aside id="main__sidebar">
+                <section class="panel__orange">
+                    <ul class="rows" collapsable>
                         <li class="heading">Details</li>
 
                         <li class="space-between">
@@ -796,10 +808,10 @@ Side Bar
                             <ins id="character__race">&empty;</ins>
                         </li>
                     </ul>
-                </article>
+                </section>
 
-                <article id="panel__proficiencies">
-                    <ul collapsable>
+                <section class="panel__grey">
+                    <ul class="rows" collapsable>
                         <li class="heading">Proficiencies</li>
 
                         <li class="space-between">
@@ -822,7 +834,7 @@ Side Bar
                             <ins id="character__proficiencies_tools">&empty;</ins>
                         </li>
                     </ul>
-                </article>
+                </section>
             </aside>
         </div>
         

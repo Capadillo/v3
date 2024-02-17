@@ -1,0 +1,13 @@
+.panel {
+    @each $key, $value in $colors {
+        &__#{$key} {
+            background-color: var(--clr-#{$key}-400);
+            background: linear-gradient(45deg, var(--clr-#{$key}-400) 0%, var(--clr-#{$key}-500) 100%);
+            border: var(--border) solid var(--clr-#{$key}-300);
+            box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 4px;
+            padding: var(--padding, 0.75rem);
+            div.heading { padding-bottom: var(--padding, 0.75rem); }
+            .heading { color: var(--clr-#{$key}-100); }
+        }
+    }
+}

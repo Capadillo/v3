@@ -1,12 +1,17 @@
 ul {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    color: white;
-
+    display: flex;
+    flex-direction: column;
+    
     li {
-        padding: var(--padding, 0.5rem);
+        padding-bottom: var(--padding, 0.5rem);
 
         &:not(.heading) {
             font-size: 0.825rem;
+            padding-inline: var(--padding, 0.5rem);
+        }
+
+        &:not(:first-child), &.backdrop {
+            padding-top: var(--padding, 0.5rem);
         }
 
         strong {
@@ -14,23 +19,19 @@ ul {
         }
 
         &.backdrop {
-            & + .backdrop {
-                margin-top: var(--gap, 0.5rem);
-            }
-
             background: rgba(black, 0.5);
             border-radius: 0.25rem;
-        }
 
-        div + div {
-            margin-top: calc(var(--padding) / 2);
+            & + .backdrop {
+                margin-top: var(--spacing, 0.5rem);
+            }
         }
     }
 
-    .rows {
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--padding) / 2);
+    &.collapsed {
+        .heading {
+            padding: 0;
+        }
     }
 }
 

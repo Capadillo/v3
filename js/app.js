@@ -47,39 +47,39 @@ $('[collapsable] > header').on('click', collapsable_on_click);
 $('[collapsable] > .heading').on('click', collapsable_on_click);
 
 $(`header img`).click(function() {
-    $(this).closest('header').toggleClass('inline');
+    $(this).closest('header').toggleClass('condensed');
 });
 
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-// Panel
+// Section
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 
-$('[data-panel]').on('click', function() {
-    const panel = $(this).data('panel');
+$('[data-section]').on('click', function() {
+    const section = $(this).data('section');
 
-    // store the last clicked panel in cookies
-    Cookie.set('active_panel', panel);
+    // store the last clicked section in cookies
+    Cookie.set('section', section);
 
-    // toggle the active panel on the navbar
-    $(`[data-panel]`).removeClass('active');
+    // toggle the active section on the navbar
+    $(`[data-section]`).removeClass('active');
     $(this).addClass('active');
 
-    // toggle the panel to be displayed
-    $(`main [id*=panel__]`).not(`#panel__${panel}`).addClass('hidden');
-    $(`#panel__${panel}`).removeClass('hidden');
+    // toggle the section to be displayed
+    $(`main [id*=section__]`).not(`#section__${section}`).addClass('hidden');
+    $(`#section__${section}`).removeClass('hidden');
 })
 
 $(function() {
-    // get the active panel from cookies or default
-    const panel = Cookie.get('active_panel') ?? 'attributes';
+    // get the active section from cookies or default
+    const section = Cookie.get('section') ?? 'attributes';
 
-    // toggle the active panel on the navbar
-    $(`[data-panel]`).removeClass('active');
-    $(`[data-panel='${panel}']`).addClass('active');
+    // toggle the active section on the navbar
+    $(`[data-section]`).removeClass('active');
+    $(`[data-section='${section}']`).addClass('active');
 
-    // toggle the panel to be displayed
-    $(`main [id*=panel__]`).not(`#panel__${panel}`).addClass('hidden');
-    $(`#panel__${panel}`).removeClass('hidden');
+    // toggle the section to be displayed
+    $(`main [id*=section__]`).not(`#section__${section}`).addClass('hidden');
+    $(`#section__${section}`).removeClass('hidden');
 })
 
 let previous_width = 0;

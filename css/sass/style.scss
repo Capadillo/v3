@@ -1,286 +1,46 @@
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-// Variables
-// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-
-@use 'sass:color';
-
-$colors: (
-    "health":     hsl(12, 78%, 48%),
-    "experience": hsl(157, 41%, 53%),
-    // Class Colours
-    "barbarian":  hsl(13,  78%, 57%),
-    "bard":       hsl(299, 28%, 55%),
-    "cleric":     hsl(211, 18%, 63%),
-    "druid":      hsl(69,  39%, 38%),
-    "fighter":    hsl(18,  34%, 37%),
-    "monk":       hsl(197, 50%, 55%),
-    "paladin":    hsl(46,  40%, 52%),
-    "ranger":     hsl(143, 23%, 41%),
-    "rogue":      hsl(84,   3%, 33%),
-    "sorcerer":   hsl(0,   54%, 39%),
-    "warlock":    hsl(277, 38%, 44%),
-    "wizard":     hsl(221, 59%, 40%)
-);
-
-$color-gold-100: hsl(50, 80%, 60%);
-$color-gold-200: color.scale($color-gold-100, $lightness: -20%); 
-$color-gold-300: color.scale($color-gold-100, $lightness: -40%);
-$color-gold-400: color.scale($color-gold-100, $lightness: -60%);
-$color-gold-500: color.scale($color-gold-100, $lightness: -80%);
-
-$color-orange-100: hsl(34, 80%, 60%);
-$color-orange-200: color.scale($color-orange-100, $lightness: -20%); 
-$color-orange-300: color.scale($color-orange-100, $lightness: -40%);
-$color-orange-400: color.scale($color-orange-100, $lightness: -60%);
-$color-orange-500: color.scale($color-orange-100, $lightness: -80%);
-
-$color-blue-100: hsl(220, 80%, 60%);
-$color-blue-200: color.scale($color-blue-100, $lightness: -20%); 
-$color-blue-300: color.scale($color-blue-100, $lightness: -40%);
-$color-blue-400: color.scale($color-blue-100, $lightness: -60%);
-$color-blue-500: color.scale($color-blue-100, $lightness: -80%);
-
-$color-grey-100: hsl(0, 0%, 40%);
-$color-grey-200: color.scale($color-grey-100, $lightness: -20%);
-$color-grey-300: color.scale($color-grey-100, $lightness: -40%);
-$color-grey-400: color.scale($color-grey-100, $lightness: -60%);
-$color-grey-500: color.scale($color-grey-100, $lightness: -80%);
-
-$color-light-grey-100: hsl(0, 0%, 60%);
-$color-light-grey-200: color.scale($color-light-grey-100, $lightness: -20%);
-$color-light-grey-300: color.scale($color-light-grey-100, $lightness: -40%);
-$color-light-grey-400: color.scale($color-light-grey-100, $lightness: -60%);
-$color-light-grey-500: color.scale($color-light-grey-100, $lightness: -80%);
-
-$color-green-100: hsl(140, 75%, 50%);
-$color-green-200: color.scale($color-green-100, $lightness: -20%);
-$color-green-300: color.scale($color-green-100, $lightness: -40%);
-$color-green-400: color.scale($color-green-100, $lightness: -60%);
-$color-green-500: color.scale($color-green-100, $lightness: -80%);
-
-$color-str-100: hsl(7, 80%, 60%);
-$color-str-200: color.scale($color-str-100, $lightness: -20%);
-$color-str-300: color.scale($color-str-100, $lightness: -40%);
-$color-str-400: color.scale($color-str-100, $lightness: -60%);
-$color-str-500: color.scale($color-str-100, $lightness: -80%);
-
-$color-con-100: hsl(145, 80%, 60%);
-$color-con-200: color.scale($color-con-100, $lightness: -20%);
-$color-con-300: color.scale($color-con-100, $lightness: -40%);
-$color-con-400: color.scale($color-con-100, $lightness: -60%);
-$color-con-500: color.scale($color-con-100, $lightness: -80%);
-
-$color-dex-100: hsl(202, 80%, 60%);
-$color-dex-200: color.scale($color-dex-100, $lightness: -20%);
-$color-dex-300: color.scale($color-dex-100, $lightness: -40%);
-$color-dex-400: color.scale($color-dex-100, $lightness: -60%);
-$color-dex-500: color.scale($color-dex-100, $lightness: -80%);
-
-$color-int-100: hsl(281, 80%, 60%);
-$color-int-200: color.scale($color-int-100, $lightness: -20%);
-$color-int-300: color.scale($color-int-100, $lightness: -40%);
-$color-int-400: color.scale($color-int-100, $lightness: -60%);
-$color-int-500: color.scale($color-int-100, $lightness: -80%);
-
-$color-wis-100: hsl(320, 80%, 60%);
-$color-wis-200: color.scale($color-wis-100, $lightness: -20%);
-$color-wis-300: color.scale($color-wis-100, $lightness: -40%);
-$color-wis-400: color.scale($color-wis-100, $lightness: -60%);
-$color-wis-500: color.scale($color-wis-100, $lightness: -80%);
-
-$color-cha-100: hsl(46, 80%, 60%);
-$color-cha-200: color.scale($color-cha-100, $lightness: -20%);
-$color-cha-300: color.scale($color-cha-100, $lightness: -40%);
-$color-cha-400: color.scale($color-cha-100, $lightness: -60%);
-$color-cha-500: color.scale($color-cha-100, $lightness: -80%);
-
-:root {
-    --bp-small: 512px;
-    --gap: 0.5rem;
-    --padding: 1.0rem;
-    --border: 3px;
-}
-
-// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-// Import SCSS
+// Base SCSS Files
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 
 @import 'base/reset';
 @import 'base/typography';
+@import 'base/helper';
+@import 'base/variables';
 
-@import 'components/button';
-@import 'components/card';
-@import 'components/list';
-@import 'components/progress';
-
-@import 'layout/container';
-@import 'layout/navigation';
-@import 'layout/panels';
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+// Basic Page Style
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 
 body {
-    background-color: hsl(210, 20%, 40%);
-    min-height: calc(100vh - var(--padding));
-}
-
-ins {
-    text-decoration: unset;
-}
-
-.input-group {
-    background-color: white;
-    display: grid;
-    grid-gap: 0.25rem;
-    grid-template-columns: 1fr;
-    padding: 0.25rem;
-    width: 100%;
-
-    &:first-child {
-        border-top-left-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem;
-    }
-
-    &:last-child {
-        border-top-right-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-    }
-
-    label {
-        color: black;
-        font-size: 0.65rem;
-        font-weight: 600;
-        width: 100%;
-    }
-
-    input {
-        color: black;
-        font-size: 0.825rem;
-        font-weight: 400;
-        text-align: end;
-        width: 100%;
-    }
-}
-
-.space-between {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.node {
-    align-items: center;
-    background-color: rgba(black, 0.75);
-    border: var(--border) solid rgba(white, 0.1);
-    border-radius: 0.5rem;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    text-align: center;
-
-    > span:first-child {
-        @extend .heading;
-    }
-
-    > span:last-child {
-        color: white;
-        font-size: 0.75rem;
-        margin-top: 0.5rem;
-    }
-}
-
-.table__weapons {
-    display: grid;
-    grid-gap: 0.25rem;
-    grid-template-columns: 3fr 1fr 3fr 3fr;
-    margin: 0.5rem;
-
-    header, div {
-        display: grid;
-        grid-column: 1 / -1;
-        grid-template-columns: subgrid;
-    }
-
-    span {
-        color: white;
-    }
-
-    header span {
-        font-size: 0.825rem;
-        font-weight: 500;
-        padding: 0 0.25rem;
-    }
-
-    div span {
-        background-color: rgba(black, 0.5);
-        border-radius: 0.25rem;
-        font-size: 0.75rem;
-        padding: 0.5rem;
-    }
-}
-
-header {
+    background-color: #52667a;
     color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#section__attributes {
     display: grid;
-    grid-gap: var(--gap, 0.5rem);
-
-    h1 > small {
-        display: block;
-        font-family: 'Rubik', sans-serif;
-        font-size: 0.6em;
-        font-weight: 500;
-        margin-top: -0.25rem;
-    }
-
-    .profile {
-        align-items: center;
-        display: grid;
-        grid-gap: var(--gap, 0.5rem);
-        grid-template-columns: max-content auto;
-
-        img {
-            aspect-ratio: 1;
-            max-width: 4rem;
-        }
-
-        .progress-group {
-            grid-column: span 2;
-        }
-    }
-
-    &.inline {
-        grid-template-columns: auto;
-
-        > .profile {
-            img {
-                min-width: unset;
-                max-height: 4rem;
-            }
-            
-            > :not(img):not(h1) {
-                display: none;
-            }
-        }
-    }
-
-    @media (min-width: 720px) {
-        
-
-        &.inline {
-            grid-template-columns: max-content auto;
-
-            .profile {
-                grid-gap: unset;
-                h1 {
-                    display: none;
-                }
-            }
-        }
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--spacing, 0.5rem);
 }
 
-img {
-    background-color: $color-dex-300;
-    background: linear-gradient(45deg, $color-dex-400 0%, $color-dex-500 100%);
-    border: var(--border) solid $color-dex-400;
-    display: block;
-}
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+// Component SCSS Files
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+@import 'components/card';
+@import 'components/list';
+@import 'components/navbar';
+@import 'components/panel';
+@import 'components/progress';
+
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+// Layout SCSS Files
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+@import 'layout/aside';
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/main';
