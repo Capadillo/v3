@@ -1,6 +1,7 @@
 @use 'sass:color';
 
 $colors: (
+    'white': hsl(0, 0%, 100%),
     'gold': hsl(50, 80%, 60%),
     'orange': hsl(34, 80%, 60%),
     'blue': hsl(220, 80%, 60%),
@@ -38,7 +39,9 @@ $colors: (
         --clr-#{$key}-100: #{$value};
         --clr-#{$key}-200: #{color.scale($value, $lightness: -20%)};
         --clr-#{$key}-300: #{color.scale($value, $lightness: -40%)};
+        --clr-#{$key}-350: #{color.scale($value, $lightness: -50%)};
         --clr-#{$key}-400: #{color.scale($value, $lightness: -60%)};
+        --clr-#{$key}-450: #{color.scale($value, $lightness: -70%)};
         --clr-#{$key}-500: #{color.scale($value, $lightness: -80%)};
     }
 }
