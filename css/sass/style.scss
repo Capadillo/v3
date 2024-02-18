@@ -88,8 +88,9 @@ body {
         background-color: var(--clr-constitution-400);
         background: linear-gradient(45deg, var(--clr-constitution-350) 0%, var(--clr-constitution-450) 100%);
         position: absolute;
-        width: 100%;
-        bottom: 0;
+        bottom: 1px;
+        inset-inline: 1px;
+        max-height: calc(100% - 2px);
         z-index: 1;
     }
 
@@ -104,6 +105,55 @@ body {
         font-weight: 300;
         margin-top: -0.2em;
         z-index: 2;
+    }
+
+}
+
+.saves {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto max-content;
+    gap: var(--spacing, 0.5rem);
+    justify-content: space-between;
+    margin: var(--spacing, 0.5rem);
+
+    span {
+        aspect-ratio: 1 / 1;
+        background-color: rgba(black, 0.25);
+        display: block;
+        min-width: 2rem;
+    }
+
+    &__icons {
+        align-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 100%;
+        justify-content: space-between;
+        width: 100%;
+    }
+    span.save {
+        mask: url(../img/heart-full.svg) no-repeat center / contain;
+
+        &.checked {
+            background-color: var(--clr-constitution-400);
+            background: linear-gradient(45deg, var(--clr-constitution-350) 0%, var(--clr-constitution-450) 100%)
+        }
+    }
+
+    span.fail {
+        mask: url(../img/skull-full.svg) no-repeat center / contain;
+
+        &.checked {
+            background-color: var(--clr-strength-400);
+            background: linear-gradient(45deg, var(--clr-strength-400) 0%, var(--clr-strength-500) 100%);
+        }
+    }
+
+    &__label {
+        grid-column: 1 / -1;
+        font-size: 0.825rem;
     }
 
 }
