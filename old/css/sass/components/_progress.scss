@@ -1,0 +1,111 @@
+.progress {
+    --color-failure: rgb(200, 90, 90);
+    --color-success: rgb(90, 160, 90);
+    --progress: 0%;
+    --progress-gap: 1px;
+
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 3px solid black;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    min-height: 4rem;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    &::before {
+        background-color: red;
+        content: "";
+        inset: var(--progress-gap, 1px);
+        position: absolute;
+        width: var(--progress, 0%);
+        z-index: 2;
+    }
+
+    label {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 3;
+
+        span {
+            display: block;
+            padding: 0.5rem;
+        }
+    }
+}
+
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+// Extensions of Progress
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+.progress.health {
+    .saves {
+        visibility: hidden;
+    }
+
+    &.dying {
+        &::before,
+        label {
+            visibility: hidden;
+        }
+
+        .saves {
+            display: flex;
+            gap: var(--progress-gap, 1px);
+            inset: var(--progress-gap, 1px);
+            position: absolute;
+            visibility: visible;
+
+            span {
+                border: 0.0625rem solid transparent;
+                flex-grow: 1;
+
+                &.checked {
+                    &:nth-child(1),
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        background-color: var(--color-failure);
+                        background-image:
+                            linear-gradient(
+                                to bottom,
+                                color-mix(in srgb, black, var(--color-failure)),
+                                var(--color-failure));
+                        border-color: color-mix(in srgb, black 50%, var(--color-failure));
+                    }
+
+                    &:nth-child(4),
+                    &:nth-child(5),
+                    &:nth-child(6) {
+                        background-color: var(--color-success);
+                        background-image:
+                            linear-gradient(
+                                to bottom,
+                                color-mix(in srgb, black, var(--color-success)),
+                                var(--color-success));
+                        border-color: color-mix(in srgb, black 50%, var(--color-success))
+                    }
+
+                    &:first-of-type {
+                        background:
+                            center / auto 80% no-repeat url("../img/skull-full.svg"),
+                            linear-gradient(
+                                to bottom,
+                                color-mix(in srgb, black, var(--color-failure)),
+                                var(--color-failure));
+                    }
+
+                    &:last-of-type {
+                        background:
+                            center / auto 80% no-repeat url("../img/chevron.svg"),
+                            linear-gradient(
+                                to bottom,
+                                color-mix(in srgb, black, var(--color-success)),
+                                var(--color-success));
+                    }
+                }
+            }
+        }
+    }
+}

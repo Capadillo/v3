@@ -16,6 +16,16 @@ body {
     color: white;
 }
 
+ol, ul {
+    list-style: none;
+    margin: unset;
+    padding: unset;
+}
+
+ins {
+    text-decoration: unset;
+}
+
 .hidden {
     display: none !important;
 }

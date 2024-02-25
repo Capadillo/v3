@@ -1,0 +1,44 @@
+.layout {
+    align-items: start;
+    display: grid;
+    
+    &.gap {
+        grid-gap: var(--spacing, 0.5rem);
+    }
+
+    &.stretch {
+        align-items: stretch;
+    }
+
+    &.sidebar {
+        grid-template-columns: 1fr 2fr;
+
+        @media (max-width: 540px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &.two {
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 864px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &.three {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.four {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &.five {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &.six {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
