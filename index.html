@@ -242,7 +242,7 @@ Card
 
             <main data-tab="attributes">
                 <section id="tab-attributes" class="layout stretch two gap">
-                    <article class="panel color__strength">
+                    <article class="panel color__strength" collapsable-sm>
                         <h2 class="margin-bottom space-between">
                             <span>Strength</span>
                             <span id="character__strength">&empty;</span>
@@ -787,12 +787,28 @@ Card
                 Cookie.set('active-tab', href);
             })
 
-            function toggleCollapse(event) {
-                $(this).parent().toggleClass('collapsed');
+            function toggleCollapse(element) {
+                console.log($(element).parent());
+                $(element).parent().toggleClass('collapsed');
             }
 
-            $('[collapsable] h2').click(toggleCollapse);
-            $('[collapsable] h3').click(toggleCollapse);
+            $('[collapsable] h2').click(function() {
+                toggleCollapse(this);
+            });
+            $('[collapsable] h3').click(function() {
+                toggleCollapse(this);
+            });
+            $(`[collapsable-sm] h2`).click(function(event) {
+                if (window.innerWidth < 540) {
+                    toggleCollapse(this);
+                }
+            });
+
+            $(window).on('resize', function() {
+                if (window.innerWidth > 540) {
+                    $('[collapsable-sm]').removeClass('collapsed');
+                }
+            })
 
             $('.portrait').click(function() {
                 $("#character__progress").attr(

@@ -1015,7 +1015,7 @@ html {
 .container {
   margin-block: var(--spacing, 0.5rem);
   margin-inline: auto;
-  max-width: calc(100% - 1rem);
+  max-width: min(100% - 1rem, 1028px);
 }
 
 header .container {
@@ -1099,10 +1099,10 @@ main:not([data-tab=spells]) #tab-spells {
   align-items: stretch;
 }
 
-[collapsable].collapsed > *:not(h2):not(h3) {
+[collapsable].collapsed > *:not(h2):not(h3), [collapsable-sm].collapsed > *:not(h2):not(h3) {
   display: none;
 }
-[collapsable] h2, [collapsable] h3 {
+[collapsable] h2, [collapsable] h3, [collapsable-sm] h2, [collapsable-sm] h3 {
   cursor: pointer;
   user-select: none;
 }

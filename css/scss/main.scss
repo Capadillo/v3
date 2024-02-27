@@ -35,7 +35,7 @@ html {
 .container {
     margin-block: var(--spacing, 0.5rem);
     margin-inline: auto;
-    max-width: calc(100% - 1rem);
+    max-width: min((100% - 1rem), 1028px);
 }
 
 header .container {
@@ -138,7 +138,7 @@ main {
     }
 }
 
-[collapsable] {
+[collapsable], [collapsable-sm] {
     &.collapsed {
         > *:not(h2):not(h3) {
             display: none;
