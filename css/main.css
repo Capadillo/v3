@@ -683,6 +683,90 @@ Requirements:
   border-color: color-mix(in srgb, black 20%, var(--clr-wizard-300));
 }
 
+hr {
+  border: 1px solid black;
+  height: 3px;
+  width: 100%;
+}
+.color__experience hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-experience-300));
+}
+.color__white hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-white-300));
+}
+.color__gold hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-gold-300));
+}
+.color__orange hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-orange-300));
+}
+.color__blue hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-blue-300));
+}
+.color__grey hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-grey-300));
+}
+.color__light-grey hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-light-grey-300));
+}
+.color__green hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-green-300));
+}
+.color__strength hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-strength-300));
+}
+.color__constitution hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-constitution-300));
+}
+.color__dexterity hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-dexterity-300));
+}
+.color__intelligence hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-intelligence-300));
+}
+.color__wisdom hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-wisdom-300));
+}
+.color__charisma hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-charisma-300));
+}
+.color__barbarian hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-barbarian-300));
+}
+.color__bard hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-bard-300));
+}
+.color__cleric hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-cleric-300));
+}
+.color__druid hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-druid-300));
+}
+.color__fighter hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-fighter-300));
+}
+.color__monk hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-monk-300));
+}
+.color__paladin hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-paladin-300));
+}
+.color__ranger hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-ranger-300));
+}
+.color__rogue hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-rogue-300));
+}
+.color__sorcerer hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-sorcerer-300));
+}
+.color__warlock hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-warlock-300));
+}
+.color__wizard hr {
+  background-color: color-mix(in srgb, black 20%, var(--clr-wizard-300));
+}
+
 .progress {
   --progress: 0%;
   --progress-gap: 1px;

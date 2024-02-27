@@ -29,3 +29,15 @@ Requirements:
         }
     }
 }
+
+hr {
+    border: 1px solid black;
+    height: 3px;
+    width: 100%;
+
+    @each $key, $value in clr.$colors {
+        .color__#{$key} & {
+            background-color: func.mix(var(--clr-#{$key}-300), black 20%);
+        }
+    }
+}
