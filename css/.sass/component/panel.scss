@@ -1,0 +1,55 @@
+@use '../core/functions' as func;
+@use '../core/variables' as var;
+
+.panel {
+    --background-color: green;
+    --border: 3px;
+    --padding: 1rem;
+    --radius: 1rem;
+
+    background-color: black;
+    border: var(--border) solid transparent;
+    border-color: func.mix(var(--background-color), black 20%);
+    border-radius: var(--radius);
+    display: block;
+    padding: var(--padding, 0.5rem);
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        border-radius: calc(var(--radius) - 4px);
+        content: " ";
+        display: block;
+        inset: 1px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    @each $key, $value in var.$colors {
+        &.color__#{$key} {
+            border-color: func.mix(var(--clr-#{$key}-300), black 20%);
+
+            &::after {
+                background-color: var(--clr-#{$key}-300);
+                background-image: func.gradient(var(--clr-#{$key}-300));
+            }
+        }
+    }
+
+    & > * {
+        position: relative;
+        z-index: 3;
+    }
+}
+
+hr {
+    border: 1px solid black;
+    height: 3px;
+    width: 100%;
+
+    @each $key, $value in var.$colors {
+        .color__#{$key} & {
+            background-color: func.mix(var(--clr-#{$key}-300), black 20%);
+        }
+    }
+}

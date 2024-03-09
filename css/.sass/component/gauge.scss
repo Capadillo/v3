@@ -1,0 +1,59 @@
+@use '../base/variables' as var;
+@use '../base/functions' as func;
+
+.gauge {
+    --pct: 100%;
+    --radius: 1rem;
+
+    align-items: center;
+    background-color: rgba(black, 0.5);
+    border: 3px solid rgba(black, 0.5);
+    border-radius: var(--radius);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        background-color: rgba(black, 0.5);
+        border-radius: calc(var(--radius) - 4px);
+        content: " ";
+        display: block;
+        inset: 1px calc((100% - var(--pct)) + 1px) 1px 1px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    label {
+        display: grid;
+        font-size: 0.825rem;
+        font-weight: 500;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0.75rem;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        text-shadow: 1px 1.25px 1px rgba(0, 0, 0, 0.8);
+        z-index: 3;
+
+        & > span:first-of-type {
+            text-align: start;
+        }
+
+        & > span:last-of-type {
+            text-align: end;
+        }
+    }
+
+    // Variants
+    @each $key, $value in var.$colors {
+        &__#{$key} {
+            border-color: func.mix(var(--clr-#{$key}-300), black 20%);
+
+            &::after {
+                background-color: var(--clr-#{$key}-300);
+                background-image: func.gradient(var(--clr-#{$key}-300), to bottom);
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@function mix($base, $mix) {
+    @return color-mix(in srgb, $mix, $base)
+};
+
+@function gradient($color, $angle: 45deg) {
+    @return linear-gradient(
+        $angle,
+        mix($color, black 20%),
+        mix($color, black 60%)
+    );
+};

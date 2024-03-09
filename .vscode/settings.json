@@ -1,14 +1,15 @@
 {
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+
     "liveSassCompile.settings.formats": [
         {
             "format": "expanded",
-            "extensionName": ".css",
-            "savePath": "~/.."
-        },
-        {
-            "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "~/.."
+            "savePathReplacementPairs": {
+                "/css/.sass": "/css"
+            }
         }
     ]
 }

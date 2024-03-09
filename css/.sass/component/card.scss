@@ -3,10 +3,17 @@
     border-radius: 0.25rem;
     color: white;
     font-weight: 300;
-    padding: var(--padding, 0.5rem);
+    padding: 1rem;
 
     & + & {
-        margin-top: var(--spacing, 1rem);
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+        margin-top: 1px;
+    }
+
+    &:has(+ .card) {
+        border-bottom-left-radius: 0rem;
+        border-bottom-right-radius: 0rem;
     }
 
     header {
@@ -25,7 +32,7 @@
         font-size: 0.825em;
         margin-top: 0.5rem;
 
-        div {
+        li {
             margin-top: 0.25rem;
             
             strong {

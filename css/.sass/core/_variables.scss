@@ -1,13 +1,16 @@
-@use 'sass:color';
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+// Define Colors
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
 $colors: (
+    'health': hsl(140, 75%, 50%),
+    'experience': hsl(270, 60%, 50%),
     'white': hsl(0, 0%, 100%),
     'gold': hsl(50, 80%, 60%),
     'orange': hsl(34, 80%, 60%),
     'blue': hsl(220, 80%, 60%),
     'grey': hsl(0, 0%, 40%),
     'light-grey': hsl(0, 0%, 60%),
-    'green': hsl(140, 75%, 50%),
     // attributes
     'strength': hsl(7, 80%, 60%),
     'constitution': hsl(145, 80%, 60%),
@@ -29,19 +32,3 @@ $colors: (
     "warlock":    hsl(277, 38%, 44%),
     "wizard":     hsl(221, 59%, 40%)
 );
-
-:root {
-    --border:  0.1875rem;
-    --spacing: 0.5000rem;
-    --padding: 1.0000rem;
-
-    @each $key, $value in $colors {
-        --clr-#{$key}-100: #{$value};
-        --clr-#{$key}-200: #{color.scale($value, $lightness: -20%)};
-        --clr-#{$key}-300: #{color.scale($value, $lightness: -40%)};
-        --clr-#{$key}-350: #{color.scale($value, $lightness: -50%)};
-        --clr-#{$key}-400: #{color.scale($value, $lightness: -60%)};
-        --clr-#{$key}-450: #{color.scale($value, $lightness: -70%)};
-        --clr-#{$key}-500: #{color.scale($value, $lightness: -80%)};
-    }
-}

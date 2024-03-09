@@ -1,0 +1,771 @@
+<!--
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+ID Formats
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+Ability Score:      character__<ability_score>
+Ability Modifier:   modifier__<ability_score>
+Saving Throw:       save__<ability_score>
+Skill:              skill__<skill>
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+Special Data Attributes
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+-= Collapsable =-
+
+collapsable
+
+• Allow the user to collapse the list.
+
+Formats:
+
+<h2> ► <ul collapsable>
+<article collapsable> ◄ <h2> ► *
+
+-= Panel =-
+
+data-panel=<panel_id>
+
+• Hide all panels except the one the user clicked on.
+
+-= Accordian =-
+
+data-accordian=<accordian_group>
+
+• Hide all accordians from the same grouping.
+• Allow toggling of the opened accordian.
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+Headings
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+<h1> — Only used for the Character and Player Name.
+<h2> — Any panel used as a section, or article
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+Card
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+<article class="card">
+    <h3>
+        Card Title
+        <small>Sub Title</small>
+    </h3>
+
+    <ul class="card__details">
+        <li class="space-between">
+            <strong>Line Title</strong>
+            <span>Line Value</span>
+        </li>
+    </ul>
+
+    <div class="card__description">Text</div>
+</article>
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Character Sheet</title>
+        <link rel="manifest" href="./app.webmanifest">
+        <link rel="stylesheet" href="./template_css/main.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="profile">
+                    <div class="portrait">
+                        <img src="./img/placeholder.png" alt="">
+                    </div>
+
+                    <h1 class="heading">
+                        Character Name
+                        <small>Player Name</small>
+                    </h1>
+                </div>
+
+                <div id="character__progress" class="layout gap" hidden>
+                    <div id="progress__health" class="shield health progress" style="--progress: 100%">
+                        <label>
+                            <span>Health</span>
+
+                            <span>
+                                <i><span>99</span></i>
+                            </span>
+
+                            <span>
+                                452 / 452
+                            </span>
+                        </label>
+
+                        <div class="saves">
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                        </div>
+                    </div>
+
+                    <div id="progress__xp" class="experience progress" style="--progress: 100%">
+                        <label>
+                            <span>Level 20</span>
+                            <span>MAX</span>
+                        </label>
+                    </div>
+
+                    <div id="progress__class1" class="fighter progress" style="--progress: 88%">
+                        <label>
+                            <span>Fighter</span>
+                            <span>Level 18</span>
+                        </label>
+                    </div>
+
+                    <div id="progress__class2" class="monk progress" style="--progress: 11%">
+                        <label>
+                            <span>Monk</span>
+                            <span>Level 2</span>
+                        </label>
+                    </div>
+                </div>
+
+                <nav id="nav-tabs">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#attributes">Attributes</a>
+                        </li>
+
+                        <li>
+                            <a href="#biography">Biography</a>
+                        </li>
+
+                        <li>
+                            <a href="#combat">Combat</a>
+                        </li>
+
+                        <li>
+                            <a href="#features">Features</a>
+                        </li>
+
+                        <li>
+                            <a href="#inventory">Inventory</a>
+                        </li>
+
+                        <li>
+                            <a href="#spells">Spells</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="container layout sidebar gap">
+            <aside class="layout gap">
+                <section class="panel color__orange" collapsable>
+                    <h2 class="margin-bottom">Details</h2>
+
+                    <ul>
+                        <li class="space-between">
+                            <strong>Alignment</strong>
+                            <span id="character__alignment">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Background</strong>
+                            <span id="character__background">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Carry Weight</strong>
+                            <span id="character__carry">&empty;</span>
+                        </li>
+                        
+                        <li class="space-between">
+                            <strong>Faith</strong>
+                            <span id="character__faith">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Gender</strong>
+                            <span id="character__gender">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>spanpiration</strong>
+                            <span id="character__spanpiration">&empty;</span>
+                        </li>
+                        
+                        <li class="space-between">
+                            <strong>Proficiency Bonus</strong>
+                            <span id="character__proficiency_bonus">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Race</strong>
+                            <span id="character__race">&empty;</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="panel color__grey" collapsable>
+                    <h2 class="margin-bottom">Proficiencies</h2>
+
+                    <ul>
+                        <li class="space-between">
+                            <strong>Armour</strong>
+                            <span id="character__proficiencies_armor">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Languages</strong>
+                            <span id="character__languages">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Weapons</strong>
+                            <span id="character__proficiencies_weapons">&empty;</span>
+                        </li>
+
+                        <li class="space-between">
+                            <strong>Tools</strong>
+                            <span id="character__proficiencies_tools">&empty;</span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <main data-tab="attributes">
+                <section id="tab-attributes" class="layout stretch two gap">
+                    <article class="panel color__strength" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Strength</span>
+                            <span id="character__strength">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__strength">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__strength">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Athletics</span>
+                                <span id="skill__athletics">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="panel color__constitution" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Constitution</span>
+                            <span id="character__constitution">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__constitution">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__constitution">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+                    
+                    <article class="panel color__dexterity" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Dexterity</span>
+                            <span id="character__dexterity">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__dexterity">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__dexterity">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Acrobatics</span>
+                                <span id="skill__acrobatics">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Sleight of Hand</span>
+                                <span id="skill__sleight_of_hand">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Stealth</span>
+                                <span id="skill__stealth">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="panel color__charisma" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Charisma</span>
+                            <span id="character__charisma">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__charisma">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__charisma">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Deception</span>
+                                <span id="skill__deception">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Intimidation</span>
+                                <span id="skill__intimidation">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Performance</span>
+                                <span id="skill__performance">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Persuasion</span>
+                                <span id="skill__persuasion">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="panel color__intelligence" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Intelligence</span>
+                            <span id="character__intelligence">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__intelligence">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__intelligence">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Arcana</span>
+                                <span id="skill__arcana">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>History</span>
+                                <span id="skill__history">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Investigation</span>
+                                <span id="skill__investigation">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Nature</span>
+                                <span id="skill__nature">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Religion</span>
+                                <span id="skill__religion">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+                    
+                    <article class="panel color__wisdom" collapsable breakpoint="small">
+                        <h2 class="margin-bottom space-between">
+                            <span>Wisdom</span>
+                            <span id="character__wisdom">&empty;</span>
+                        </h2>
+
+                        <ul class="padded-list">
+                            <li class="space-between backdrop">
+                                <span>Modifier</span>
+                                <span id="modifier__wisdom">&empty;</span>
+                            </li>
+
+                            <li class="space-between backdrop">
+                                <span>Saving Throw</span>
+                                <span id="save__wisdom">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Animal Handling</span>
+                                <span id="skill__animal_handling">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>spanight</span>
+                                <span id="skill__spanight">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Medicine</span>
+                                <span id="skill__medicine">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Perception</span>
+                                <span id="skill__perception">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Perception <em>Passive</em></span>
+                                <span id="skill__perception_passive">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <span>Survival</span>
+                                <span id="skill__survival">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section id="tab-biography" class="panel color__charisma">
+                    <h2 class="margin-bottom">Biography</h2>
+
+                    <article class="card" collapsable>
+                        <h3>Backstory</h3>
+
+                        <div class="card__description">
+                            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.</div>
+                        </div>
+                    </article>
+
+                    <hr>
+
+                    <article class="card" collapsable>
+                        <h3>Character Personality</h3>
+                    
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Personality Traits</strong>
+                                <span id="character__personality_traits">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Ideals</strong>
+                                <span id="character__ideals">&empty;</span>
+                            </li class="space-between">
+                            
+                            <li class="space-between">
+                                <strong>Bonds</strong>
+                                <span id="character__bonds">&empty;</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Flaws</strong>
+                                <span id="character__flaws">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <h3>Character Appearance</h3>
+                    
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Age</strong>
+                                <span id="character__age">&empty;</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Eyes</strong>
+                                <span id="character__Eyes">&empty;</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Hair</strong>
+                                <span id="character__hair">&empty;</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Height</strong>
+                                <span id="character__height">&empty;</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Skin</strong>
+                                <span id="character__skin">&empty;</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Weight</strong>
+                                <span id="character__weight">&empty;</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <hr>
+
+                    <article class="card" collapsable>
+                        <h3>Allies & Organisations</h3>
+
+                        <div class="card__description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita ad laudantium ipsum mollitia explicabo deserunt facilis rerum itaque maxime earum beatae reiciendis, nostrum quasi quo aspernatur, quae cumque quisquam.
+                        </div>
+                    </article>
+                </section>
+
+                <section id="tab-combat" class="panel color__wisdom">
+                    <h2 class="margin-bottom">Combat</h2>
+                </section>
+
+                <section id="tab-features" class="panel color__constitution">
+                    <h2 class="margin-bottom">Features</h2>
+    
+                    <article class="card" collapsable>
+                        <h3 class="space-between">
+                            <span>Dwarven Toughness</span>
+                            <span>BR 20</span>
+                        </h3>
+
+                        <div class="card__description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam debitis iure quos praesentium officiis doloribus expedita asperiores eos rem modi quisquam hic at, repellat, nam blanditiis ut laboriosam dicta illum.</li>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="tab-inventory" class="panel color__dexterity">
+                    <h2 class="margin-bottom">Inventory</h2>
+                    
+                    <article class="card" collapsable>
+                        <h3>
+                            <div class="space-between">
+                                <span>Warhammer</span>
+                                <span>Qty 1</span>
+                            </div>
+                            
+                            <small>Martial Melee Weapon</small>
+                        </h3>
+
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Cost</strong>
+                                <span>15 gp</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Damage</strong>
+                                <span>1d8 bludgeoning</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Weight</strong>
+                                <span>2 lbs</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Properties</strong>
+                                <span>Versatile (1d10)</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <h3>
+                            <div class="space-between">
+                                <span>Padded</span>
+                                <span>Qty 1</span>
+                            </div>
+                            
+                            <small>Light Armor</small>
+                        </h3>
+
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Armor Class</strong>
+                                <span>11 + Dex modifier</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Cost</strong>
+                                <span>5 gp</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Strength</strong>
+                                <span>—</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Weight</strong>
+                                <span>8 lbs</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card" collapsable>
+                        <h3>
+                            <div class="space-between">
+                                <span>Emblem</span>
+                                <span>Qty 1</span>
+                            </div>
+                            
+                            <small>Holy Symbol</small>
+                        </h3>
+
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Cost</strong>
+                                <span>5 gp</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Weight</strong>
+                                <span>—</span>
+                            </li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section id="tab-spells" class="panel color__intelligence">
+                    <h2 class="margin-bottom">Spells</h2>
+
+                    <article class="card collapsed" collapsable>
+                        <h3>
+                            <span data-value="spell-name">Acid Splash</span>
+
+                            <small>
+                                <span data-value="spell-type">Conjuration cantrip</span>
+                            </small>    
+                        </h3>
+                        
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Casting Time</strong>
+                                <span data-value="casting-time">1 action</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Range</strong>
+                                <span data-value="range">60 feet</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Components</strong>
+                                <span data-value="components">V, S</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Duration</strong>
+                                <span data-value="duration">spantantaneous</span>
+                            </li>
+                        </ul>
+
+                        <div class="card__description">
+                            <span data-value="description">You hurl a bubble of action. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must ducceed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</span>
+                        </div>
+                    </article>
+
+                    <article class="card collapsed" collapsable>
+                        <h3>
+                            <span data-value="spell-name">Aid</span>
+
+                            <small>
+                                <span data-value="spell-type">2nd-level abjuration</span>
+                            </small>    
+                        </h3>
+                        
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Casting Time</strong>
+                                <span data-value="casting-time">1 action</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Range</strong>
+                                <span data-value="range">30 feet</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Components</strong>
+                                <span data-value="components">V, S, M (a tiny strip of cloth)</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Duration</strong>
+                                <span data-value="duration">8 hours</span>
+                            </li>
+                        </ul>
+
+                        <div class="card__description">
+                            <span data-value="description">Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.<br><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.</span>
+                        </div>
+                    </article>
+                    
+                    <article class="card collapsed" collapsable>
+                        <h3>
+                            <span data-value="spell-name">Alarm</span>
+
+                            <small>
+                                <span data-value="spell-type">1st-level abjuration (ritual)</span>
+                            </small>    
+                        </h3>
+                        
+                        <ul class="card__details">
+                            <li class="space-between">
+                                <strong>Casting Time</strong>
+                                <span data-value="casting-time">1 minute</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Range</strong>
+                                <span data-value="range">30 feet</span>
+                            </li>
+                            
+                            <li class="space-between">
+                                <strong>Components</strong>
+                                <span data-value="components">V, S, M (a tiny bell and a piece of fine silver wire)</span>
+                            </li>
+
+                            <li class="space-between">
+                                <strong>Duration</strong>
+                                <span data-value="duration">8 hours</span>
+                            </li>
+                        </ul>
+
+                        <div class="card__description">
+                            <span data-value="description">You set an alarm agaspant unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You can also choose whether the alarm is mental or audible.<br>A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakenss you if you are sleeping.<br>An audiblee alarm produces the sound of a hand bell for 10 seconds within 60 feet.</span>
+                        </div>
+                    </article>
+                </section>
+            </main>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="./js/app.js" type="module"></script>
+        <script src="./js/components.js" type="module"></script>
+    </body>
+</html>

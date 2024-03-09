@@ -1,0 +1,24 @@
+@use 'sass:color';
+@use './variables' as var;
+
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+// Generate CSS Variables
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+
+:root {
+    --radius: 0.5rem;
+    --spacing: 0.5rem;
+    --padding: 2rem;
+
+    @each $key, $value in var.$colors {
+        --clr-#{$key}-100: #{color.scale($value, $lightness:  20%)};
+        --clr-#{$key}-150: #{color.scale($value, $lightness:  10%)};
+        --clr-#{$key}-200: #{$value};
+        --clr-#{$key}-250: #{color.scale($value, $lightness: -10%)};
+        --clr-#{$key}-300: #{color.scale($value, $lightness: -20%)};
+        --clr-#{$key}-350: #{color.scale($value, $lightness: -30%)};
+        --clr-#{$key}-400: #{color.scale($value, $lightness: -40%)};
+        --clr-#{$key}-450: #{color.scale($value, $lightness: -50%)};
+        --clr-#{$key}-500: #{color.scale($value, $lightness: -60%)};
+    }
+}
