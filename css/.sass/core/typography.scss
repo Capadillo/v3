@@ -1,4 +1,4 @@
-@use './variables' as var;
+@use '../variables' as vars;
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -29,12 +29,16 @@ h1 {
     font-size: 1.35em;
 }
 
+strong {
+    font-weight: 600;
+}
+
 :not(.collapsed) > .margin-bottom {
     margin-bottom: var(--padding, 1rem);
 }
 
 
-@each $key, $value in var.$colors {
+@each $key, $value in vars.$colors {
     .color__#{$key} {
         h1, h2, h3 {
             color: var(--clr-#{$key}-150);

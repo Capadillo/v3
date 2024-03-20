@@ -1,16 +1,30 @@
 @use 'sass:color';
-@use './variables' as var;
+@use '../variables' as vars;
 
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 // Generate CSS Variables
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
 :root {
+    --border: 3px;
     --radius: 0.5rem;
     --spacing: 0.5rem;
     --padding: 2rem;
 
-    @each $key, $value in var.$colors {
+    // Component: Card
+    --card-background:  rgba(0, 0, 0, 0.5);
+    --card-radius:      0.5rem;
+    --card-padding:     1rem;
+    --card-spacing:     1px;
+
+    --clr-black: rgb(0, 0, 0);
+    --clr-white: rgb(255, 255, 255);
+    @each $value in (25, 50, 75) {
+        --clr-black-#{$value}: rgba(0, 0, 0, 0.#{$value});
+        --clr-white-#{$value}: rgba(255, 255, 255, 0.#{$value});
+    }
+
+    @each $key, $value in vars.$colors {
         --clr-#{$key}-100: #{color.scale($value, $lightness:  20%)};
         --clr-#{$key}-150: #{color.scale($value, $lightness:  10%)};
         --clr-#{$key}-200: #{$value};

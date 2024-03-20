@@ -1,51 +1,47 @@
 .card {
-    background-color: rgba(black, 0.5);
-    border-radius: 0.25rem;
-    color: white;
-    font-weight: 300;
-    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
 
     & + & {
-        border-top-left-radius: 0rem;
-        border-top-right-radius: 0rem;
-        margin-top: 1px;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
     }
 
-    &:has(+ .card) {
-        border-bottom-left-radius: 0rem;
-        border-bottom-right-radius: 0rem;
+    &:has(+ &) {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
     }
 
-    header {
+    &:not(:first-of-type) {
+        margin-top: var(--card-spacing);
+    }
+
+    &.collapsed {
+        small {
+            display: none;
+        }
+    }
+
+    & > :header {
         cursor: pointer;
         user-select: none;
-
-        small {
-            display: block;
-            font-family: 'Rubik', sans-serif;
-            font-size: 0.75em;
-            font-style: italic;
-        }
     }
 
     &__details {
         font-size: 0.825em;
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
 
         li {
-            margin-top: 0.25rem;
-            
-            strong {
-                font-weight: 600;
-            }
+            margin-top: 0.25em;
         }
     }
 
     &__description {
-        color: rgba(white, 0.75);
         font-size: 0.825em;
         font-style: italic;
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
+        opacity: 0.75;
         text-align: justify;
         text-wrap: pretty;
     }

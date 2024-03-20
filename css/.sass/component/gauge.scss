@@ -1,5 +1,5 @@
-@use '../base/variables' as var;
-@use '../base/functions' as func;
+@use '../functions' as func;
+@use '../variables' as vars;
 
 .gauge {
     --pct: 100%;
@@ -46,12 +46,12 @@
     }
 
     // Variants
-    @each $key, $value in var.$colors {
+    @each $key, $value in vars.$colors {
         &__#{$key} {
-            border-color: func.mix(var(--clr-#{$key}-300), black 20%);
+            border-color: var(--clr-#{$key}-400);
 
             &::after {
-                background-color: var(--clr-#{$key}-300);
+                background-color: var(--clr-#{$key}-500);
                 background-image: func.gradient(var(--clr-#{$key}-300), to bottom);
             }
         }

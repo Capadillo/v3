@@ -26,6 +26,9 @@ $(`.header__navigation`).click(function(event) {
     // get the previously selected tab
     const previous = $(this).find(`[aria-selected='true']`);
 
+    // dont deselect currently selected tab
+    if (target === previous[0]) return;
+
     // select the new tab and show the panel
     $(target).attr('aria-selected', true);
     $(`#${$(target).attr('aria-controls')}`).removeClass('hidden');

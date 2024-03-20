@@ -1,11 +1,7 @@
-@use '../base/functions' as func;
+@use '../functions' as func;
+@use '../variables' as vars;
 
 ul.navbar {
-    --background-color: var(--clr-blue-300);
-    --border: 3px;
-    --padding: 1rem;
-    --radius: 1rem;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -17,7 +13,7 @@ ul.navbar {
     
     li {
         -webkit-tap-highlight-color: transparent;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: var(--clr-black-50);
         border: var(--border) solid transparent;
         border-radius: var(--radius);
         color: inherit;
@@ -42,17 +38,17 @@ ul.navbar {
 
         span {
             display: block;
-            padding: var(--padding);
+            padding: calc(var(--padding) / 1.5);
             position: relative;
             z-index: 3;
         }
         
         &[aria-selected='true'] {
-            border-color: func.mix(var(--background-color), black 20%);
+            border-color: func.mix(var(--clr-blue-300), black 20%);
 
             &::after {
-                background-color: var(--background-color);
-                background-image: func.gradient(var(--background-color));
+                background-color: var(--clr-blue-300);
+                background-image: func.gradient(var(--clr-blue-300));
             }
         }
     }

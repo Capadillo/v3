@@ -50,6 +50,18 @@ const Character = {
             "level":     2
         },
     ],
+    'alignment':        "Lawful Neutral",
+    'background':       "Soldier",
+    'faith':            "Atheist",
+    'gender':           "Male",
+    'inspiration':      false,
+    'race':             "Stout Gnome",
+    'proficiencies': {
+        'armour':       [ 'Heavy' ],
+        'languages':    [ 'Common', 'Gnome', 'Dwarven' ],
+        'weapons':      [ 'Simple', 'Martial' ],
+        'tools':        [ 'Mason\'s Tools' ]
+    }
 };
 
 // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -94,3 +106,29 @@ Character['classes'].forEach((cls) => {
     gauge.find('label > span:nth-child(3)').text(cls.level);
     $('.header__progression').append(gauge);
 });
+
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+// Side Bar
+// =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+// ----------------------------------------
+// 1. Details
+// ----------------------------------------
+
+$(`#character__alignment`).text(Character['alignment']);
+$(`#character__background`).text(Character['background']);
+$(`#character__faith`).text(Character['faith']);
+$(`#character__gender`).text(Character['gender']);
+$(`#character__inspiration`).text(Character['inspiration'] ? 'Yes' : 'No');
+$(`#character__proficiency_bonus`).text(Math.ceil(1 + (level / 4)));
+$(`#character__race`).text(Character['race']);
+
+// ----------------------------------------
+// 2. Proficiencies
+// ----------------------------------------
+
+const prof = Character['proficiencies'];
+$(`#character__proficiencies_armor`).text(prof['armour'].join(', '));
+$(`#character__languages`).text(prof['languages'].join(', '));
+$(`#character__proficiencies_weapons`).text(prof['weapons'].join(', '));
+$(`#character__proficiencies_tools`).text(prof['tools'].join(', '));

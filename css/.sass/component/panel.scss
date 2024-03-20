@@ -1,5 +1,5 @@
-@use '../core/functions' as func;
-@use '../core/variables' as var;
+@use '../functions' as func;
+@use '../variables' as vars;
 
 .panel {
     --background-color: green;
@@ -25,7 +25,7 @@
         z-index: 2;
     }
 
-    @each $key, $value in var.$colors {
+    @each $key, $value in vars.$colors {
         &.color__#{$key} {
             border-color: func.mix(var(--clr-#{$key}-300), black 20%);
 
@@ -47,7 +47,7 @@ hr {
     height: 3px;
     width: 100%;
 
-    @each $key, $value in var.$colors {
+    @each $key, $value in vars.$colors {
         .color__#{$key} & {
             background-color: func.mix(var(--clr-#{$key}-300), black 20%);
         }
